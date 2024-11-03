@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Thông Tin Thanh Toán - Luxury Girl Booking</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        font-family: "Poppins", sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        background: linear-gradient(135deg, #ff7e5f, #feb47b);
+        margin: 0;
+      }
+      .payment-container {
+        width: 90%;
+        max-width: 600px;
+        background-color: #fff;
+        padding: 40px 20px;
+        border-radius: 15px;
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+        text-align: center;
+        animation: fadeIn 1s ease-in-out;
+      }
+      h1 {
+        color: #ff7e5f;
+        font-size: 28px;
+        font-weight: bold;
+        margin-bottom: 20px;
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+      }
+      .account-section {
+        background-color: #f9f9f9;
+        padding: 20px;
+        border-radius: 12px;
+        margin-bottom: 20px;
+        border-left: 5px solid #ff7e5f;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+      .account-section:hover {
+        transform: scale(1.02);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+      }
+      .highlight {
+        color: #ff7e5f;
+        font-weight: 600;
+      }
+      .button {
+        padding: 12px 24px;
+        background-color: #ff7e5f;
+        color: #ffffff;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        font-size: 16px;
+        font-weight: 600;
+        transition: background-color 0.3s, transform 0.3s;
+        margin-top: 15px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+      }
+      .button:hover {
+        background-color: #ff5e3a;
+        transform: scale(1.05);
+      }
+      .file-upload {
+        display: inline-block;
+        margin: 20px 0;
+      }
+      .file-upload input[type="file"] {
+        display: none; /* Ẩn input file mặc định */
+      }
+      .file-upload-label {
+        padding: 12px 24px;
+        background-color: #ff7e5f;
+        color: #ffffff;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        font-size: 16px;
+        font-weight: 600;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        transition: background-color 0.3s, transform 0.3s;
+      }
+      .file-upload-label:hover {
+        background-color: #ff5e3a;
+        transform: scale(1.05);
+      }
+      .success-message {
+        color: green;
+        font-size: 18px;
+        margin-top: 10px;
+        display: none; /* Ẩn thông báo ban đầu */
+      }
+      .video-container {
+        margin-top: 20px;
+      }
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(-20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="payment-container">
+      <h1>Luxury Girl Booking</h1>
+      <h3>Thông Tin Thanh Toán</h3>
+      <p style="color: #555; font-size: 16px; margin-bottom: 20px">
+        Để đảm bảo quyền lợi và chất lượng dịch vụ tốt nhất dành riêng cho bạn,
+        Luxury Girl Booking yêu cầu khoản đăng ký 39.000w (700.000Vnd). Khoản
+        phí này chỉ là phí duy trì hệ thống giúp mình lấy được mã và tạo quyền
+        ưu tiên khi lựa chọn lịch hẹn, giúp tăng cường bảo mật và quyền riêng tư
+        tuyệt đối cho bạn. Phí các gói dịch vụ sẽ được thanh toán trực tiếp cho
+        nhân viên, đảm bảo tính minh bạch và tiện lợi trong quá trình giao dịch.
+        Đặc biệt, khoản 39k này không phải là chi phí mất đi mà sẽ được trừ vào
+        gói dịch vụ bạn chọn. Ví dụ: Nếu bạn chọn gói dịch vụ 110.000w, số tiền
+        39.000w sẽ được trừ đi, và bạn chỉ cần thanh toán 79.000w cho dịch vụ mà
+        bạn đã lựa chọn.
+      </p>
+
+      <!-- Tài khoản HANA BANK -->
+      <div class="account-section">
+        <p class="account-heading">Tài khoản HANA BANK</p>
+        <p>
+          <strong>Ngân hàng:</strong>
+          <span class="highlight">HANA BANK (하나은행)</span>
+        </p>
+        <p>
+          <strong>Số tài khoản:</strong>
+          <span class="highlight" id="hana-account">51291072352007</span>
+          <button class="button" onclick="copyToClipboard('hana-account')">
+            Sao chép
+          </button>
+        </p>
+        <p>
+          <strong>Chủ tài khoản:</strong>
+          <span class="highlight">PHAM VAN TRUNG</span>
+        </p>
+      </div>
+
+      <!-- Tài khoản TPBANK -->
+      <div class="account-section">
+        <p class="account-heading">Tài khoản TPBANK</p>
+        <p>
+          <strong>Ngân hàng:</strong>
+          <span class="highlight">TPBANK</span>
+        </p>
+        <p>
+          <strong>Số tài khoản:</strong>
+          <span class="highlight" id="tp-account">00006001701</span>
+          <button class="button" onclick="copyToClipboard('tp-account')">
+            Sao chép
+          </button>
+        </p>
+        <p>
+          <strong>Chủ tài khoản:</strong>
+          <span class="highlight">BÙI THỊ MỸ AN</span>
+        </p>
+      </div>
+
+      <!-- Tài khoản SHB -->
+      <div class="account-section">
+        <p class="account-heading">Tài khoản SHB</p>
+        <p>
+          <strong>Ngân hàng:</strong>
+          <span class="highlight">SHB</span>
+        </p>
+        <p>
+          <strong>Số tài khoản:</strong>
+          <span class="highlight" id="shb-account">1023606558</span>
+          <button class="button" onclick="copyToClipboard('shb-account')">
+            Sao chép
+          </button>
+        </p>
+        <p>
+          <strong>Chủ tài khoản:</strong>
+          <span class="highlight">BÙI THỊ MỸ AN</span>
+        </p>
+      </div>
+
+      <p style="color: #777; font-size: 16px">
+        Hãy chắc chắn rằng bạn đã thanh toán đầy đủ theo yêu cầu trên. Sau khi
+        hoàn tất, bạn có thể nhận mã đặt lịch và tiếp tục sử dụng các dịch vụ
+        của chúng tôi.
+      </p>
+
+      <!-- Gửi Hình Ảnh Thanh Toán -->
+      <div class="file-upload">
+        <label class="file-upload-label" for="imageInput"
+          >Chọn hình ảnh thanh toán</label
+        >
+        <input type="file" id="imageInput" accept="image/*" />
+      </div>
+      <button class="button" onclick="uploadImage()">
+        Gửi Hình Ảnh Thanh Toán
+      </button>
+
+      <div class="success-message" id="successMessage">
+        <span>&#10004;</span> Gửi thành công!
+      </div>
+
+      <!-- Nút Xem Video Hướng Dẫn -->
+      <button class="button" onclick="showVideoGuide()">
+        Xem Video Hướng Dẫn Đặt Lịch
+      </button>
+
+      <!-- Video Hướng Dẫn -->
+      <div id="videoContainer" class="video-container" style="display: none">
+        <iframe
+          width="100%"
+          height="315"
+          src="https://www.youtube.com/embed/your_video_id"
+          frameborder="0"
+          allowfullscreen
+        ></iframe>
+      </div>
+
+      <!-- Nút Trang Chủ -->
+      <button
+        class="button"
+        onclick="window.location.href='https://gaigoinhanh.github.io/girlluxury/'"
+      >
+        Trang Chủ
+      </button>
+    </div>
+
+    <script>
+      function copyToClipboard(accountId) {
+        const accountNumber = document.getElementById(accountId).innerText;
+        navigator.clipboard.writeText(accountNumber).then(() => {
+          alert("Đã sao chép số tài khoản: " + accountNumber);
+        });
+      }
+
+      function uploadImage() {
+        const imageInput = document.getElementById("imageInput");
+        const successMessage = document.getElementById("successMessage");
+        const file = imageInput.files[0];
+
+        if (!file) {
+          alert("Vui lòng chọn hình ảnh.");
+          return;
+        }
+
+        const formData = new FormData();
+        formData.append("image", file);
+
+        fetch(
+          "https://api.imgbb.com/1/upload?key=58ab89193ef752956046e1702ab24402",
+          {
+            method: "POST",
+            body: formData,
+          }
+        )
+          .then((response) => response.json())
+          .then((data) => {
+            if (data.success) {
+              const imageUrl = data.data.url;
+              const telegramMessage = "Hình ảnh thanh toán: " + imageUrl;
+              const telegramUrl = `https://telegram.me/share/url?url=${encodeURIComponent(
+                telegramMessage
+              )}`;
+              window.open(telegramUrl, "_blank");
+
+              // Hiển thị thông báo thành công
+              successMessage.style.display = "block";
+              setTimeout(() => {
+                successMessage.style.display = "none";
+              }, 3000); // Ẩn thông báo sau 3 giây
+            } else {
+              alert("Gửi hình ảnh không thành công.");
+            }
+          })
+          .catch((error) => {
+            alert("Có lỗi xảy ra: " + error);
+          });
+      }
+
+      function showVideoGuide() {
+        const videoContainer = document.getElementById("videoContainer");
+        videoContainer.style.display =
+          videoContainer.style.display === "none" ? "block" : "none";
+      }
+    </script>
+  </body>
+</html>
