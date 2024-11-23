@@ -1,5 +1,6 @@
 
 
+
 <!DOCTYPE html>
 <html lang="vi">
 <head>
@@ -93,7 +94,63 @@
 </body>
 </html>
 
-    
+
+
+
+
+
+
+<div id="accessCodeModal" class="modal" style="display: flex;">
+    <div class="modal-overlay"></div>
+    <div class="modal-content">
+<!-- Logo lớn -->
+<div class="logo-container">
+        <img src="https://i.ibb.co/q0cnWqD/photo-2024-10-15-22-09-13.jpg" alt="Logo" style="width: 90px; height: auto; margin-bottom: -30px;">
+        <img src="https://i.ibb.co/7WW4LrB/photo-2024-08-19-18-39-28-2.jpg" alt="Logo" style="width: 90px; height: auto; margin-bottom: -30px;">
+    </div>
+
+        <h4>Nhập mã vùng khu vực do LUXURY GIRL BOOKING  cấp vì lí do bảo mật và lợi ích của khách hàng </h4>
+        <div style="position: relative; width: 100%;">
+            <input type="password" id="accessCodeInput" placeholder="Nhập mã tại đây" style="width: calc(100% - 40px); padding: 10px; margin-bottom: 10px;  border-radius: 10px; /* Viền vàng kim */">
+           <span id="togglePassword" onclick="togglePasswordVisibility()" style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%); cursor: pointer;">
+                👁️
+              
+            </span>
+        </div>
+        <button onclick="checkAccessCode()" style=" box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6); /* Hiệu ứng đổ bóng */ transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s; background-color: #000000; /* Nền đen */ Viền vàng */ padding: 10px 20px;  border-radius: 5px;    
+         cursor: pointer;">
+            Xác nhận
+        </button>
+
+        <!-- Spinner khi đang kiểm tra mã -->
+        <div class="spinner-container" id="spinnerContainer" style="display: none;">
+            <div class="spinner"></div>
+            <p class="spinner-text">Vui lòng đợi, hệ thống đang kiểm tra và tìm kiếm các bé gần nhất cho bạn...</p>
+            <div class="progress-bar">
+                <div class="progress"></div>
+            </div>
+        </div>
+
+        <!-- Dấu tích xanh hiển thị khi mã được xác nhận -->
+        <div class="success-message" id="successMessage" style="display: none; margin-top: 10px;">
+            <span style="color: green; font-size: 24px;">&#10004;</span> Mã đã được xác nhận thành công!
+        </div>
+
+        <div class="info-message">
+            <img src="https://i.ibb.co/R38vw3M/pngegg.png" alt="Custom Logo" style="height: 20px; width: 20px; vertical-align: middle; margin-right: 5px;">
+  Bật vị trí để hệ thống có thể giúp bạn tìm kiếm và cung cấp chính xác vị trí các bé gần nhất nhé
+
+        </div>
+    </div>
+</div>
+
+<div id="accessCodeDisplay"></div>
+
+
+
+
+
+
 <style>
     .modal { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); display: flex; align-items: center; justify-content: center; }
     .modal-content { background: #FFD700; border: 1px solid #DAA520; /* Viền vàng */ padding: 20px; border-radius: 8px; text-align: center; width: 300px; }
@@ -116,7 +173,7 @@
 </style>
 
 <script>
-const correctAccessCode = "JDL438"; // Đặt mã truy cập hợp lệ
+const correctAccessCode = "695422"; // Đặt mã truy cập hợp lệ
 
 // Hàm kiểm tra mã truy cập
 function checkAccessCode() {
@@ -148,7 +205,7 @@ function checkAccessCode() {
     }, 6000); // Giả lập thời gian kiểm tra mã (2 giây)
 }
 
-// Hàm hiển thị mã vùng
+// Hàm hiển thị mã khu vực
 function displayAccessCode(code) {
     const accessDisplay = document.getElementById('accessCodeDisplay');
     accessDisplay.innerText = `Mã vùng: ${code}`;
@@ -208,6 +265,7 @@ window.onload = function() {
     initializePage();
 };
 </script>
+
 
 
 
@@ -507,24 +565,33 @@ h1 {
    
     <style>
     
-        .container {
-            text-align: center;
-            width: 60%;
-            margin-top: -50px;
-            margin: 0 auto;
-            padding: -30px;
-            background: linear-gradient(45deg, #ff7eb9, #ff65a3); /* Nền hồng gradient */
-            box-shadow: 0 4px 8px #000000;
-            color: #000000; /* Chữ đen */
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5); /* Đổ bóng cho chữ */
-            border: 2px solid #000000; /* Viền cam nhạt */
+    /* Container tổng thể */
+      #chat-container {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 360px;
+            height: 700px;
+            border: 3px solid #0c5d9d;
+            display: flex;
+            flex-direction: column;
+            background: linear-gradient(135deg, #2e8bc0, #0c5d9d);
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+            z-index: 1000;
+            font-family: 'Arial', sans-serif;
         }
 
-        .header {
+        #chat-header {
+            background: #0c5d9d;
+            color: #fff;
+            padding: 15px;
             text-align: center;
-            padding: 10px;
+            font-weight: bold;
+            font-size: 18px;
+            text-transform: uppercase;
         }
-
         .banner-container {
           margin-top: -30px;
             overflow: hidden;
@@ -760,9 +827,9 @@ h1 {
                     <div class="statistics-widget">
                         <h4>Thống kê người dùng</h4>
                         <ul>
-                            <li>Online  <strong id="online">&nbsp;227</strong></li>
-                            <li>Đã dùng dịch vụ  <strong id="vipMembers">&nbsp;1821</strong></li>
-                            <li>Tổng lượt truy cập  <strong id="visitCount">&nbsp;85581</strong></li>
+                            <li>Online  <strong id="online">&nbsp;427</strong></li>
+                            <li>Đã dùng dịch vụ  <strong id="vipMembers">&nbsp;3821</strong></li>
+                            <li>Tổng lượt truy cập  <strong id="visitCount">&nbsp;105083</strong></li>
                         </ul>
                         </div>
               
@@ -802,7 +869,7 @@ h1 {
     <div class="package-container">
       <!-- Gói Thường -->
       <div class="package">
-        <h2>Gói Thường - 100,000 ⭐</h2>
+        <h2>Gói Thường - 1540 TWD ⭐</h2>
         <p><strong>Thời gian:</strong> 90 phút</p>
 <img src="https://i.ibb.co/vsDwM4G/ngua-thai-500x500-removebg-preview.png" alt="Gói VIP"style="height: 100px; width: auto;">            <p><strong>Thời gian:</strong> 90 phút</p>
         <p><strong>Dịch vụ:</strong> <p>Tắm chung thư giãn,massage nhẹ nhàng</p>
@@ -813,7 +880,7 @@ h1 {
 
     <!-- Gói VIP -->
     <div class="package">
-        <h2>Gói VIP - 145,000 ⭐</h2>
+        <h2>Gói VIP - 3000 TWD ⭐</h2>
         <img src="https://i.ibb.co/yg6830F/keo-sam-hamer-tang-cuong-sinh-ly-1-vien-jpg-removebg-preview.png" alt="Gói VIP"style="height: 100px; width: auto;">
         <img src="https://i.ibb.co/98401Xz/Sin-Su-nuoc-chinh-hang-removebg-preview.png" alt="Gói VIP"style="height: 100px; width: auto;">
         <img src="https://i.ibb.co/Np0XnMR/Untitled-design-36-removebg-preview.png" alt="Gói VIP"style="height: 100px; width: auto;">
@@ -826,7 +893,7 @@ h1 {
 
     <!-- Gói Luxury -->
     <div class="package">
-        <h2>Gói Luxury - 335,000 ⭐</h2>
+        <h2>Gói Luxury - 5800 TWD ⭐</h2>
         <img src="https://i.ibb.co/yg6830F/keo-sam-hamer-tang-cuong-sinh-ly-1-vien-jpg-removebg-preview.png" alt="Gói VIP"style="height: 100px; width: auto;">
         <img src="https://i.ibb.co/vsDwM4G/ngua-thai-500x500-removebg-preview.png" alt="Gói VIP"style="height: 100px; width: auto;">            
         <img src="https://i.ibb.co/98401Xz/Sin-Su-nuoc-chinh-hang-removebg-preview.png" alt="Gói Luxury"style="height: 100px; width: auto;">
@@ -842,7 +909,7 @@ h1 {
 
     <!-- Gói VIP Tour -->
     <div class="package">
-        <h2>Gói VIP Tour - 1,900,000 ⭐</h2>
+        <h2>Gói VIP Tour - 9000 TWD ⭐</h2>
         <img src="https://i.ibb.co/Np0XnMR/Untitled-design-36-removebg-preview.png" alt="Gói VIP Tour"style="height: 100px; width: auto;">
        <img src="https://i.ibb.co/vsDwM4G/ngua-thai-500x500-removebg-preview.png" alt="Gói VIP"style="height: 100px; width: auto;">
        <img src="https://i.ibb.co/98401Xz/Sin-Su-nuoc-chinh-hang-removebg-preview.png" alt="Gói Luxury"style="height: 100px; width: auto;">
@@ -913,128 +980,180 @@ h1 {
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <title>Chat Tự Động</title>
     <style>
-        /* General Chat Container Styling */
+        /* Container tổng thể */
         #chat-container {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            width: 300px;
-            height: 550px;
-            border: 2px solid #0084ff;
-            border-radius: 10px;
-            background-color: rgba(255, 255, 255, 0.9);
-            display: flex;
-            flex-direction: column;
-            padding: 10px;
-            z-index: 1000;
-            overflow: hidden;
-        }
-
-        #chat-box {
-            flex: 1;
+              position: fixed;
+              bottom: 20px;
+              right: 20px;
+              width: 360px;
+              height: 700px;
+              border: 3px solid #0c5d9d;
+              display: flex;
+              flex-direction: column;
+              background: linear-gradient(135deg, #2e8bc0, #0c5d9d);
+              border-radius: 15px;
+              box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+              overflow: hidden;
+              z-index: 1000;
+              font-family: 'Arial', sans-serif;
+          }
+  
+          #chat-header {
+              background: #0c5d9d;
+              color: #fff;
+              padding: 15px;
+              text-align: center;
+              font-weight: bold;
+              font-size: 18px;
+              text-transform: uppercase;
+          }
+  
+  
+          #chat-box {
+              flex: 1;
+              padding: 15px;
+              border-radius: 15px;
+              overflow-y: auto;
+              background-color: #f4f4f4;
+              border: 3px solid #0c5d9d;
+          }
+          /* Message Styling */
+          .chat-message {
+              display: flex;
+              align-items: center;
+              margin-bottom: 15px;
+              max-width: 100%;
+          }
+  
+          .chat-message.self {
+              justify-content: flex-end;
+          }
+          .time-stamp {
+              font-size: 12px;
+              color: #aaa;
+              margin-top: 5px;
+              text-align: right;
+          }
+          .avatar {
+              padding: -10px;
+              width: 45px;
+              height: 45px;
+              border-radius: 50%;
+              margin: 0 10px;
+              border: 2px solid #0099ff;
+          }
+  
+          .message-bubble {
+              background-color: #e1f5fe;
+              padding: 10px;
+              border-radius: 10px;
+              box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+              position: relative;
+              max-width: 250px;
+             
+          }
+  
+          /* User messages on the right */
+          .self .message-bubble {
+              background-color: #007bff;
+              color: white;
+              text-align: right;
+          }
+  
+          /* Character messages on the left */
+          .character-message {
             
-            padding: 10px;
-            overflow-y: auto;
-            background-color: #fafafa;
-            border-bottom: 1px solid #ddd;
-        }
-
-        /* Message Styling */
-        .chat-message {
-            display: flex;
-            align-items: center;
-            margin-bottom: 15px;
-            max-width: 100%;
-        }
-
-        .chat-message.self {
-            justify-content: flex-end;
-        }
-
-        .avatar {
-            padding: -10px;
-            width: 45px;
-            height: 45px;
-            border-radius: 50%;
-            margin: 0 10px;
-            border: 2px solid #0099ff;
-        }
-
-        .message-bubble {
-            background-color: #e1f5fe;
-            padding: 10px;
-            border-radius: 10px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-            position: relative;
-            max-width: 250px;
-           
-        }
-
-        /* User messages on the right */
-        .self .message-bubble {
-            background-color: #007bff;
-            color: white;
-            text-align: right;
-        }
-
-        /* Character messages on the left */
-        .character-message {
-          
-            color: black;
-           
-            border-radius: 10px;
-        }
-
-        /* Username and Status */
-        .user-name {
-            font-weight: bold;
-            font-size: 14px;
-            color: #008cff;
-            padding: -10px;
-        }
-
-        .message-status {
-            font-size: 12px;
-            color: #0084ff;
-            position: absolute;
-            bottom: -15px;
-            right: 0;
-        }
-
-        /* Input Styling */
-        #chat-input {
-            width: 40%;
-            padding: 0px;
-            border-radius: 10px;
-            border: 1px solid #00aeff;
-            margin-top: 0px;
-        }
-
-        button {
-           
-   
-            color: rgb(255, 255, 255);
-          
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-            margin-left: 5px;
-        }
-
-        button:hover {
-            background-color: #000000;
-            color: rgb(255, 255, 255);
-        }
-        /* Tắt thu phóng cho input trên thiết bị di động */
-input[type="text"] {
-    font-size: 16px; /* Ít nhất 16px để tránh tự động phóng to */
-    touch-action: manipulation; /* Tắt thu phóng khi chạm */
-}
-
-
-    </style>
-</head>
-<body>
+              color: black;
+             
+              border-radius: 10px;
+          }
+  
+          /* Username and Status */
+          .user-name {
+              font-weight: bold;
+              font-size: 14px;
+              color: #008cff;
+              padding: -10px;
+          }
+  
+          .message-status {
+              font-size: 12px;
+              color: #0084ff;
+              position: absolute;
+              bottom: -15px;
+              right: 0;
+          }
+  
+          #chat-input-container {
+              display: flex;
+              align-items: center;
+              padding: 10px;
+              background-color: #f4f4f4;
+              border-top: 1px solid #ddd;
+          }
+  
+          #chat-input {
+              flex: 1;
+              padding: 10px;
+              border-radius: 20px;
+              border: 1px solid #ccc;
+              margin-right: 10px;
+          }
+  
+          #send-btn {
+              padding: 10px 20px;
+              background: #007bff;
+              color: white;
+              border: none;
+              border-radius: 20px;
+              cursor: pointer;
+              font-weight: bold;
+              transition: 0.3s;
+          }
+  
+          #send-btn:hover {
+              background: #0056b3;
+          }
+  
+          /* Thanh cuộn */
+          #chat-box::-webkit-scrollbar {
+              width: 8px;
+          }
+  
+          #chat-box::-webkit-scrollbar-thumb {
+              background: #007bff;
+              border-radius: 5px;
+          }
+  
+          #chat-box::-webkit-scrollbar-track {
+              background: #f1f1f1;
+          }
+  
+          button {
+             
+     
+              color: rgb(255, 255, 255);
+            
+              border-radius: 5px;
+              cursor: pointer;
+              transition: background-color 0.3s ease;
+              margin-left: 5px;
+          }
+  
+          button:hover {
+              background-color: #000000;
+              color: rgb(255, 255, 255);
+          }
+          /* Tắt thu phóng cho input trên thiết bị di động */
+  input[type="text"] {
+      font-size: 16px; /* Ít nhất 16px để tránh tự động phóng to */
+      touch-action: manipulation; /* Tắt thu phóng khi chạm */
+  }
+  
+  
+      </style>
+  </head>
+  <body>
   
     <div id="chat-container">
         <div id="chat-box"></div>
@@ -1087,12 +1206,6 @@ const characters = [
                 messages: [
                 "Dit nhau suot k nghi ngoi ha may cha",
 "Tầm này chỉ có địt chứ lm gì nữa ông",
-"Nhìn mấy bé bên này ngọt nước thật",
-"Có gì mới k anh em ơi",
-"Lên trang web của câu lạc bộ có nhiều em ngon lắm các ông à",
-"Muốn mới thì lên web",
-"Mà đm k tiền lên web ngứa cặc thêm chứ làm gì",
-"Kkk vcl chưa có tiền book à",
 "Hẹn ẻm giờ mới tới mấy ông ơi vào việc luôn chứ nóng lắm rồi",
 "https://i.ibb.co/nwRxCpD/photo-18-2024-10-23-11-52-15.jpg",
 "https://i.ibb.co/K07JMK8/photo-18-2024-10-23-11-52-30.jpg",
@@ -1110,11 +1223,6 @@ const characters = [
 "https://i.ibb.co/h8tGGt9/photo-17-2024-10-23-11-52-15.jpg",
 "https://i.ibb.co/BwTPBQ1/photo-18-2024-10-23-11-51-38.jpg",
 "Đào cứ để tôi mấy bác khéo lo",
-"T thấy các bé ở đây em nào cũng ngọt ước gì mỗi ngày được ngủ với 1 em",
-"Mẹ mỗi hôm 1 em chắc  sụm xương quá",
-"Toàn các bác than với khóc thôi, book có bao tiền mà than gớm",
-"1 tuần chơi 1 em là ok rồi chứ 1 ngày 1 em chỉ có xuống lỗ sớm thôi cha nội",
-"Kkk thật , book có bửa ăn chứ mấy mà",
 "Tò mò thì lên lịch cho ah ah cho em biết nhé hấp dẫn lắm",
 "Cứ thế này mấy ông vơ hết hàng ngon còn đâu",
                 ],
@@ -1131,11 +1239,6 @@ const characters = [
 "https://i.ibb.co/mz6Rm3Y/photo-21-2024-10-23-11-52-30.jpg",
 "Nay ny bắt đi xem phim k đi đâu đc mấy ông ạ 😕",
 "Cái gì ăn nhiều chẳng ngán",
-"Tiền k thành  vấn đề quan trọng có đủ sức khỏe mà cày không",
-"Kkk gặp các bé bên này, 1 tuần phải đụ 10 cái mới phê",
-"Đi làm mệt vl rồi về còn làm nháy nữa hôm sau đi 2 hàng",
-"Đúng rồi có mấy bé nó rên thôi đã ra rồi",
-"Mà công nhận mấy ẻm bên này bú liếm phê",
 "Ông nào có ny mới hiểu đc nhỉ 😂",
                 ],
             },
@@ -1160,11 +1263,6 @@ const characters = [
                 "Mới về gửi luôn feedback cho bé nó 😘 Tiền nào của nấy thôi mấy bác",
 "Con cac dài vậy ông chắc tới lỗ rún e nó",
 "Cu vậy đụ mấy nhỏ mới la làng",
-"Con hàng 2k4 hôm bửa t book nó rên dã man, chịch xong ra ngoài người ta nhìn quá trời",
-"T mới đi ở đây có 2 lần mà công nhận phê thật",
-"Kk ngta nhìn có biết ai là ai đâu mà ngại mấy cha",
-"Toàn lạ mặt với nhau, các bé rên thế cảm giác mới sung",
-"Nhiệt tình vãi hơn hẳn các em ở quán hát mà lại ngọt nước nữa",
 "https://i.ibb.co/PQW9xhQ/photo-16-2024-10-23-11-51-38.jpg",
 "https://i.ibb.co/ZSQCLwx/photo-16-2024-10-23-11-52-15.jpg",
 "Đi có tiếng về rồi ak ông",
@@ -1184,11 +1282,6 @@ const characters = [
 "https://i.ibb.co/DrGSf3Y/photo-15-2024-10-23-11-52-30.jpg",
 "Mấy cụ này nứng sớm thế nhỉ",
 "Giờ đéo nào cũng có ông đang đụ",
-"Nhiệt tình vãi hơn hẳn các em ở quán hát mà lại ngọt nước nữa",
-"Mà bên CLB này 80 90% toàn các bé 2k 2k4 nhỉ hay thật",
-"Đi chơi phải rên dâm dâm 1 tý chứ k rên chơi có cảm giác gì",
-"Thì bọn này nó tuyển mà ông, nhỏ tuổi với hàng phải ngon mới đông khách được, hàng tào lao sao ai dám book lần 2",
-"Công nhận ở đây gái đẹp mà uy tín thật",
 "Cái lồn nhìn hồng hào thế húp thôi ông",
                 ],
             },
@@ -1198,10 +1291,6 @@ const characters = [
                 messages: [
                 "Quan trọng gần ôg ko thôi 😂",
 "Mai nghỉ k phải lo bác ạ",
-"Các cụ giờ này đâu hết rồi nhỉ",
-"Giờ này á, chỉ có tìm các bé thôi",
-"Chắc đi gái hết rồi, toàn các đại ma dâm mà",
-"Tối rồi có ông nào có book em nào đi chơi không",
 "Nay được nghỉ sớm tranh thủ đặt phòng đợi ẻm tới",
 "https://i.ibb.co/44ZDr8r/photo-14-2024-10-23-11-52-15.jpg",
 "https://i.ibb.co/Jskcg6f/photo-14-2024-10-23-11-52-30.jpg",
@@ -1229,10 +1318,6 @@ const characters = [
                 messages: [
                 "Nuôt nhỉ thích mấy e mình dây thế nà",
 "Ông nói điều ai cũng biết cả",
-"Anh em đi giao lưu tý nhỉ t chuẩn bị đi đây",
-"Đi sớm đêm ngủ cho khỏe bạn à kkk",
-"Chọn em nào dâm dâm tý đi cho  đã mình thì chưa có đi làm về nên chắc hôm  nào rảnh cũng chén phát",
-"Bố tổ ôi anh em nào nhìn xung k",
 "Càng nuột thì càng bị địt nhiều thôi ong",
 "https://i.ibb.co/wN1BqR3/photo-12-2024-10-23-11-22-02.jpg",
 "https://i.ibb.co/5986MWf/photo-12-2024-10-23-11-52-15.jpg",
@@ -1243,7 +1328,7 @@ const characters = [
             },
             {
                 name: "T Anh",
-                avatar: "https://i.ibb.co/HHV4hcR/464499472-532878919599580-4687002064873479948-n.jpg",
+                avatar: "https://i.ibb.co/0XFC6pq/avatar-trang-4.jpg",
                 messages: [
                 "Địt chung nâng tình cảm anh em lên chứ bác",
 "Tôi đi chiến trc nhé ae. Lên lịch rồi 😁",
@@ -1268,22 +1353,9 @@ const characters = [
                 ],
             },
             {
-                name: "Vinh",
-                avatar: "https://i.ibb.co/cyvZ0hf/451379936-460814410139365-7975840436709961853-n.jpg",
-                messages: [
-                    "이 게임은 정말 재밌어요, 더 자주 하고 싶어요.",
-                    "조금 더 강한 상대를 만나보고 싶어요.",
-                    "https://i.ibb.co/FsmffJ1/review-of-duy-anh-for-hot-girl-thu-thuy-lan-dau-tien-co-mat-gaito-3166745-original.jpg",
-                    "https://i.ibb.co/hY6jw6T/photo-9-2024-10-23-11-22-02.jpg",
-"https://i.ibb.co/0fTgT8S/photo-9-2024-10-23-11-52-30.jpg",
-                    "다음엔 꼭 이기고 싶어요, 준비가 되어 있어요.",
-                    "이 게임에서 더 많은 것을 배우고 싶어요.",
-                    "여기서 만난 친구들이 모두 정말 대단해요.",
-                ],
-            },
-            {
+               
                 name: "15195 Tuan",
-                avatar: "https://i.ibb.co/nwXtn5L/464029650-3837127556505364-6550903991753869152-n.jpg",
+                avatar: "https://i.ibb.co/0XFC6pq/avatar-trang-4.jpg",
                 messages: [
                 "Ae ay có săn đc em nào chưa",
 "Mấy bữa nay đi chịch nhiều quá giờ hơi đau lưng",
@@ -1298,7 +1370,7 @@ const characters = [
             },
             {
                 name: "Cu li",
-                avatar: "https://i.ibb.co/VmqdLVg/444501482-3695951817289606-3499758076608988401-n.jpg",
+                avatar: "https://i.ibb.co/0XFC6pq/avatar-trang-4.jpg",
                 messages: [
                 "Tôi còn đang chọn đào mấy bác đã đi về cả rồi",
 "Kết bé kia mà nay ẻm bận k đi đc chán quá",
@@ -1326,13 +1398,12 @@ const characters = [
                 ],
             },
             {
-                name: "Linh Korea",
+                name: "Linh a",
                 avatar: "https://i.ibb.co/7vwCwD2/465146753-1634609844076820-5036638866219117952-n.jpg",
                 messages: [
                 "Lại ko được ngủ yên rồi",
 "Giờ này book về 1 bé còn gì bằng nữa",
 "https://i.ibb.co/8d7HBkN/photo-80-2024-10-23-11-52-15.jpg",
-"https://i.ibb.co/KrZjh4S/photo-81-2024-10-23-11-22-02.jpg",
 "Hôm nay k book mai chắc k còn đào để book luon quá",
 "Đặt lịch trc cho chắc khéo mai hết thật 😂",
 "https://i.ibb.co/9sKrvrr/photo-5-2024-10-23-11-52-15.jpg",
@@ -1343,7 +1414,7 @@ const characters = [
                 ],
             },
             {
-                name: "진호",
+                name: "KK",
                 avatar: "https://i.ibb.co/DWpmDXw/287503735-2569447153190823-6330025235431122917-n.jpg",
                 messages: [
                 "Thằng dưới ăn còn thằng trên nuôi hả bác",
@@ -1382,10 +1453,6 @@ const characters = [
                 "E này dáng đẹp nhỉ thích mấy e kiểu vậy",
 "Tại bác k biết thôi chứ trong này nhiều k thiếu",
 "Này gu tôi này",
-"Hh giống kiểu vụng trộm he",
-"Căn tròn mát tay ông ơi xin info bé nào",
-"Hha tuy các ông có hơi thô tục tí, nhưng mà đm ngon ác thiệt",
-"Nhưng mà tôi bảo này , phải đụ 4 5 cái cho sướng con cặc bác nhé",
 "Tôi cũng thích nhỏ nhắn như này",
 "https://i.ibb.co/r7MTbCV/photo-2-2024-10-23-11-51-38.jpg",
 "https://i.ibb.co/3B3B02w/photo-3-2024-10-23-11-22-02.jpg",
@@ -1395,7 +1462,7 @@ const characters = [
             },
             {
                 name: "Van Trọng Nguyễn",
-                avatar: "https://i.ibb.co/zGMsbDq/462557509-844680394503016-33425799210985210-n.jpg",
+                avatar: "https://i.ibb.co/0XFC6pq/avatar-trang-4.jpg",
                 messages: [
                 "Có người làm hướng dẫn cho roi ngại gì nua kk",
 "Đỡ tốn 1 khúc rồi mấy bác 😂😂",
@@ -1403,10 +1470,6 @@ const characters = [
 "https://i.ibb.co/C7LH58G/photo-1-2024-10-23-11-52-15.jpg",
 "Ông nào cũng bú đc mấy bé vú ngon thế nhỉ",
 "Hay mối quen giấu ăn mình vậy",
-"4 5 cái ké luôn phần của mấy ông hay sao zì, 4 5 cái thì ông kia còn sức đâu mà đi",
-"Ibox đi gửi cho video luôn hahaha",
-"Kiểu này chắc các cụ mạnh bạo quá đó mà",
-"Thì bơi kkk, nhìn người kìa xót thương tấm thân của em ấy",
                 ],
             },
             {
@@ -1422,10 +1485,6 @@ const characters = [
 "https://i.ibb.co/HhygWWL/photo-22-2024-10-23-11-52-30.jpg",
 "Có con cu để sung sướng sao phải kiềm chế hả bác",
 "Thủ tục sẵn sàng chờ nàng tới nắc",
-"Trời ơi, đấm kiểu này chết con bé rồi , nhẹ nhàng nhịp nhàng thôi bác ơi kk",
-"Nhiều khi nhẹ nhàng quá các bé k chịu sướng đó chứ hahah",
-"Má giờ này tự dưng nứng cặc quá mấy ông ơi",
-"Ơ má có thiệt luôn hả, đang chơi luôn hả bro"
                 ],
             },
             {
@@ -1439,10 +1498,7 @@ const characters = [
         "https://i.ibb.co/s1kWhJ9/review-of-lan-tan-chon-buoi-for-be-hani-2k-cute-xinh-xan-vu-dep-body-nong-bong-lan-dau-di-lam-321646.jpg",
 "https://i.ibb.co/xYWkm7Q/review-of-lan-tan-chon-buoi-for-be-hani-2k-cute-xinh-xan-vu-dep-body-nong-bong-lan-dau-di-lam-321645.jpg",
 "https://i.ibb.co/GcQtzym/review-of-cu17cm-for-be-hani-2k-cute-xinh-xan-vu-dep-body-nong-bong-lan-dau-di-lam-3263673-original.jpg",
-"Đúng rồi đang nghỉ giải lao fen ơi",
-"Thế tí cho xin tí clip đẹp đẹp nhá",
-"Ôi có clip rên to to nữa thì tuyệt vời ấy nhỉ",
-"Mẹ đang ấm êm , thì đt cứ rên ầm ầm lên , trong khi trong túi k có 1 cắt",
+
         "Đi địt luôn cho máu chả phải hóng của ông nào",
         "Thủ tục sẵn sàng chờ nàng tới nắc",
         "Giờ này vẫn đc đi địt là sướng nhất rồi",
@@ -1458,8 +1514,7 @@ const characters = [
         "https://i.ibb.co/s1kWhJ9/review-of-lan-tan-chon-buoi-for-be-hani-2k-cute-xinh-xan-vu-dep-body-nong-bong-lan-dau-di-lam-321646.jpg",
 "https://i.ibb.co/xYWkm7Q/review-of-lan-tan-chon-buoi-for-be-hani-2k-cute-xinh-xan-vu-dep-body-nong-bong-lan-dau-di-lam-321645.jpg",
 "https://i.ibb.co/GcQtzym/review-of-cu17cm-for-be-hani-2k-cute-xinh-xan-vu-dep-body-nong-bong-lan-dau-di-lam-3263673-original.jpg",
-"Giống nhao b ơi, k tiền mà mấy cụ toàn feedback như này chắc phải sóc lọ thôi",
-"Mấy ae đợi tí, đừng nóng vội t tâm sự hồi sức với bé đã hehe k phí tiền",
+
         "Mấy ông đi đéo đi suốt ngày hỏi hỏi",
         "Nhìn dáng mấy e này ngon hết chỗ chê",
         "Hàng tuyển phải khác hàng dạt rồi",
@@ -1476,10 +1531,7 @@ const characters = [
 "https://i.ibb.co/xYWkm7Q/review-of-lan-tan-chon-buoi-for-be-hani-2k-cute-xinh-xan-vu-dep-body-nong-bong-lan-dau-di-lam-321645.jpg",
 "https://i.ibb.co/GcQtzym/review-of-cu17cm-for-be-hani-2k-cute-xinh-xan-vu-dep-body-nong-bong-lan-dau-di-lam-3263673-original.jpg",
 
-"Nay sao rồi anh e có clip feedback em hàng mới nào k",
-"Hóng ké lun nào nay hứng xem quá",
-"Gửi các đồng dâm nhá, em hàng cực dâm là đây chứ đâu nữa kkk qua book 12h",
-"Uầy đcm e thốn quá rồi kìa b ơi",
+       
         "Các dân chơi hôm nay thế nào rồi",
         "Qua mới book 1 em giờ rệu rã hết cả người",
 
@@ -1494,10 +1546,7 @@ const characters = [
         "https://i.ibb.co/s1kWhJ9/review-of-lan-tan-chon-buoi-for-be-hani-2k-cute-xinh-xan-vu-dep-body-nong-bong-lan-dau-di-lam-321646.jpg",
 "https://i.ibb.co/xYWkm7Q/review-of-lan-tan-chon-buoi-for-be-hani-2k-cute-xinh-xan-vu-dep-body-nong-bong-lan-dau-di-lam-321645.jpg",
 "https://i.ibb.co/GcQtzym/review-of-cu17cm-for-be-hani-2k-cute-xinh-xan-vu-dep-body-nong-bong-lan-dau-di-lam-3263673-original.jpg",
-"Xin info ẻm đi bro ơi nghe thích quá",
-"Còn nữa k ae xin thêm đi kkk , chưa có thời gian book trải nghiệm thêm em nào",
-"Tí có thêm video chứ gì đâu mà ngày nào chả đống clip",
-"Móa mấy nay làm bục mặt chưa rãnh rỗi trải nghiệm thêm mấy bé",
+
         "Là sao vậy mấy ông ai chỉ tôi với",
         "Chữ to thế k biết đọc à bác",
         "Hiểu rồi quả này mấy bố lại đi nhiều hơn cho xem",
@@ -1506,17 +1555,14 @@ const characters = [
             },
             {
                 name: "Dũng",
-                avatar: "https://i.ibb.co/nBPtNBh/korea-money-693949-1280.jpg",
+                avatar: "",
                 messages: [
                 "Phải nói là mấy ẻm khẩu dâm đụ hứng vcc",
         "Sợ gặp mấy em nằm như cục đá đéo có cảm hứng gì đúng k bác",
         "https://i.ibb.co/s1kWhJ9/review-of-lan-tan-chon-buoi-for-be-hani-2k-cute-xinh-xan-vu-dep-body-nong-bong-lan-dau-di-lam-321646.jpg",
 "https://i.ibb.co/xYWkm7Q/review-of-lan-tan-chon-buoi-for-be-hani-2k-cute-xinh-xan-vu-dep-body-nong-bong-lan-dau-di-lam-321645.jpg",
 "https://i.ibb.co/GcQtzym/review-of-cu17cm-for-be-hani-2k-cute-xinh-xan-vu-dep-body-nong-bong-lan-dau-di-lam-3263673-original.jpg",
-"Chơi ít thôi ông hại sk lắm để anh e bọn tôi trải nghiệm thêm cho",
-"Em này book qua đêm hay giờ đấy bro, nghe có vẻ cực dâm đấy",
-"Còn ẻm nào dâm cỡ này nữa k",
-"Quá trời tuyệt vời nghe tiếng thôi mà muốn bắn mẹ rồi",
+
         "Để tôi đi về cho mấy ông làm theo 😂",
         "Mới đi tối qua giờ được tính ko nhỉ hay tính từ sau thông báo ta",
         "Bác đui cũng thấy mờ mờ kể từ này hôm nay chứ",
@@ -1524,7 +1570,7 @@ const characters = [
                 ],
             },
             {
-                name: "Tâm kr",
+                name: "Tâm",
                 avatar: "https://i.ibb.co/0XFC6pq/avatar-trang-4.jpg",
                 messages: [
                 "Đấy lâu lâu phải thế này cho ae khô máu có tinh thần",
@@ -1535,10 +1581,7 @@ const characters = [
         "Chúc mừng tham gia hội đồng râm",
         "Haha thank bác nhiều nhé",
         "À thì ra mấy nay ông nt hỏi tôi suốt đó à",
-        "Còn tiếp k bro có bao nhiêu đây thôi hả kkkk",
-"Đừng nói chịch có 30s mà bắn rồi nha",
-"Hi các bro cbi có tour 3 ngày trải nghiệm rồi đây hehe",
-"Nhớ quay video nhiều tí nha bro ơi",
+
                 ],
             },
             {
@@ -1547,10 +1590,7 @@ const characters = [
             messages: [
               "https://i.ibb.co/R24khgC/photo-2024-11-08-17-50-12.jpg",
               "https://i.ibb.co/FsmffJ1/review-of-duy-anh-for-hot-girl-thu-thuy-lan-dau-tien-co-mat-gaito-3166745-original.jpg",
-              "Đù mé 3 ngày chắc xụi lơ luôn quá",
-"Kkk đụ ngựa ơi , chắc sìn sú ở VN ổng đặt qua đây quá",
-"Lạy hồn các thần dâm ơi 3 ngày sức nào chịu nổi",
-"Chuyến công tác này có vẻ mệt mỏi lắm nè kkk",
+              
         "Nay buồn quá nhỉ nay có gì vui k anh em",
         "Tới phòng a đc ko a lười đi ks quá",
         "Lên tận  giường luôn hả e khoái rồi à nha",
@@ -1595,20 +1635,20 @@ const characters = [
         "Quan trọng là ai húp trc thôi b 😌",
         "https://i.ibb.co/8cbkkB6/photo-23-2024-10-23-11-51-38.jpg",
 "https://i.ibb.co/KmjBP7Y/photo-23-2024-10-23-11-52-15.jpg",
-        "https://i.ibb.co/dL1g8cg/caption-4.jpg",
+    
           "Trc hay sau cũng địt dc cả mà lo chi hầy",
         "Anh e thấy khó quá thì cứ để tôi tôi xơi tuốt",
         "Ngon qá ae ơi đụ em này ko tiếc tiền đâu",
                 ],
             },
             {
-                name: "민석",
+                name: "DUMA",
                 avatar: "https://i.ibb.co/0XFC6pq/avatar-trang-4.jpg",
                 messages: [
                 "Tức dái lắm đúng k b kk",
         "Chả thế còn j đang thèm lại còn",
         "https://i.ibb.co/7nxq2Fn/review-of-nguyen-for-hot-girl-thu-thuy-lan-dau-tien-co-mat-gaito-3265174-original.jpg",
-        "https://i.ibb.co/P9sh7DY/caption-2.jpg",
+       
         "Không ngon đâu để lại tôi xử lý giúp cho",
         "Bữa giờ bận quá nay có tgian là húp luôn",
         "Chủ yếu là để khoe thẻ có đúng k 😆",
@@ -1623,7 +1663,7 @@ const characters = [
 "https://i.ibb.co/VSDdwBn/photo-24-2024-10-23-11-51-38.jpg",
         "Ko chén ngay thì lại hết phần đấy chứ đùa 😂",
         "Bú chưa anh e 😜",
-        "https://i.ibb.co/P65BRCc/caption-5.jpg",
+      
         "Lại nứng cặc nữa roi đó",
         "Thèm địt thôi chứ có thèm bú đâu b",
                 ],
@@ -1654,7 +1694,6 @@ const characters = [
                 avatar: "https://i.ibb.co/6r0CzTX/452448952-500748632604966-6811140838307509192-n.jpg",
                 messages: [
                 "Làm đâu đấy bác cho xin chân nào",
-        "E ở 오산",
         "Xa quá xa quá kk",
         "https://i.ibb.co/PcBrZqH/Untitled-design-33.png",
         "Mấy em gái đâu thấy cảnh này,địt dc mấy cái nói này nói kia 😂",
@@ -1676,10 +1715,6 @@ const characters = [
                     "https://i.ibb.co/7znT3v5/han-baby-nang-dam-nu-dang-dep-mong-to-mat-xinh-3271485-original.jpg",
                     "Tôi ngủ trc đây ae đi chơi vui vẻ nhé",
         "Nay có đi làm ko các bác êy",
-        "Hóng ké lun hahahah 3 ngày clip chắc phải 180 phút quá haha",
-"Haha hội người việt xa sứ, có ae cũng đỡ buồn chứ s bạn",
-"Ai mà k có nhu cầu kk",
-"Mấy ông còn info bé nào thần dâm cô nương k cho tôi xin trải nghiệm với nào",
         "https://i.ibb.co/dpnmNpg/caption-9.jpg",
         "Có thất nghiệp đâu mà k cày bố",
         "Com nc chi chưa onl sớm ri mấy cha",
@@ -1729,10 +1764,6 @@ const characters = [
                     "Đừng so sánh nữa chơi thôi",
                     "https://i.ibb.co/HBthCXD/photo-27-2024-10-23-11-22-02.jpg",
 "https://i.ibb.co/8jsvgp8/photo-27-2024-10-23-11-52-15.jpg",
-"Lên web mà lựa thấy dạo này đăng nhiều á",
-"Kkk giọng to quá nè rên chắc sướng lắm",
-"Ôi cái giọng này rên như cái loa phát thanh quá",
-"Móa ơi cái giọng kìa rên đi em ơi",
                     "Nhịn lâu lắm rồi hay sao khổ thế",
                     "https://i.ibb.co/gMKQs1Q/review-of-kath-nguyen-for-reup-hottu-anh-hot-model-cuc-ky-loi-cuon-va-khong-the-choi-tu-2741787-orig.jpg",
         "Vã lắm r hả b còn k lo địt đi",
@@ -1746,10 +1777,6 @@ const characters = [
                 messages: [
                     "Chơi là phải đúng đỉnh, mấy em này thích hợp",
                     "Tôi thích mấy em này hơn",
-                    "Haha nghe cái giọng em nó bừng tỉnh luôn",
-"Mà làm mệt trong người nghe cái giọng sướng thế trời",
-"Check hàng phát bé ơi ibox anh nha",
-"Má nghe giọng mấy ẻm cái mấy cha náo loạn hết haha",
                     "https://i.ibb.co/yXpRfRY/photo-28-2024-10-23-11-51-38.jpg",
 "https://i.ibb.co/W0rJLvD/photo-28-2024-10-23-11-52-30.jpg",
         "Ước dc nhảy vào phang e này luôn",
@@ -1803,7 +1830,7 @@ const characters = [
             "Đến với em nhen",
             "Chắc chắn anh sẽ thích thời gian bên e cho mà xem",
             "Em luôn ở đây để phục vụ anh",
-            "Giờ em có nứng chưa nè, làm a mê rồi đó nha",
+        
             "A có muốn dành thời gian thư giãn với e k nè?",
             "Em hứa sẽ làm anh hài lòng,chỉ cần anh thử thui",
                 ],
@@ -1817,10 +1844,6 @@ const characters = [
 "https://i.ibb.co/SfFcNJ9/photo-31-2024-10-23-11-52-15.jpg",
                     "Mấy ôg nhanh thế vừa vào đã húp mất rồi",
         "Nắc cho vậy mak bảo k sướng nữa thì...",
-        "Kkk hóng thì lên web lựa đi bro rồi info cho bé",
-"Ừm lên xem nhiều con hàng mới mà trải nghiệm đi",
-"Có gì xem k ae , lâu lâu đi tolet kiếm cái mà xem kkk",
-"Móa cái dú nó đẹp dã man",
         "https://i.ibb.co/k1mfzzG/review-of-vu-nguyen-anh-quan-for-reup-tieu-vy-xinh-dam-ngoan-2711519-original.jpg",
         "Nhìn nứng cac thế nhỉ tôi mà đc như bác chắc tôi đụ cho bê lồn chạy",
         "Chịu khó đi nhiều nhiều là biết e nào ngon thôi",
@@ -1843,7 +1866,7 @@ const characters = [
                 ],
             },
             {
-                name: "NgọcSơnkr",
+                name: "NgọcSơn",
                 avatar: "https://i.ibb.co/2KJcQ2F/71565859-2330950190358150-5687197424787914752-n.jpg",
                 messages: [
         "anh em ngồi tâm sự",
@@ -1867,10 +1890,6 @@ const characters = [
         "https://i.ibb.co/DRd6F1P/photo-34-2024-10-23-11-52-15.jpg",
 "https://i.ibb.co/8zV2FzQ/photo-35-2024-10-23-11-52-15.jpg",
         "Mấy bác đụ nhiệt tình quá khách sạn họ thích lắm",
-        "Có gì xem k ae , lâu lâu đi tolet kiếm cái mà xem kkk",
-"Dô đó quay tay hả cha nội",
-"Chắc 99% là quay tay rồi kk",
-"Chắc hàng mới rồi , nhìn lạ quá nè",
         "Nhậu đê các ông say vào mới hứng chơi gái đuoc",
         "https://i.ibb.co/d5XkbGc/review-of-dai-gia-phuong-nam-for-reup-tieu-vy-xinh-dam-ngoan-2629009-original.jpg",
         "Tôi thích kiểu chơi này hơn",
@@ -1918,9 +1937,6 @@ const characters = [
         "Cũng chỉ đụ thôi chứ gì mà màu mè hhh",
         "https://i.ibb.co/Sy32Kv0/review-of-ga-dau-troc-for-reup-tieu-vy-xinh-dam-ngoan-2717315-original.jpg",
         "Giờ này dc húp hàu rồi sướng thế",
-        "Hehe thông tin bé mới sang được 2 tuần nha anh em mới hỏi xong",
-"Đù mé cái gì cũng biết hết dị ông nội",
-"Hồi xưa thôi, giờ bé nó sang đây phải khác rồi chắc đẹp hơn xưa hả kkkk",
         "https://i.ibb.co/qCfxVyM/review-of-sa-de-for-reup-eimi-fukada-body-goi-cam-service-chu-dao-3081515-original.jpg",
         "đc nắc em này sướng gì bằng nữa",
         "Hàng ngon thế vú đẹp vl thật",
@@ -1934,9 +1950,6 @@ const characters = [
         "Tôi giờ vẫn chưa lựa đuọc e nào thấy e nào cũng ngon",
         "https://i.ibb.co/bgh2gck/photo-35-2024-10-23-11-52-30.jpg",
 "https://i.ibb.co/m4PYmxp/photo-36-2024-10-23-11-52-15.jpg",
-"Haha ibox e ơi, call video a sục xíu coi",
-"Thôi anh em để tôi book trải nghiệm con bé trước cho nè",
-"Lên thêm các con hàng mới nào shop ơi",
         "Mấy ông có thể đi suốt ngày suốt đêm k hết tiền ak",
         "Chỉ sợ k có sức mà đi thôi chứ tháng 5 6 lần vẫn dư sức",
         "https://i.ibb.co/SV88J2T/review-of-dau-si-la-ma-for-reup-tieu-vy-xinh-dam-ngoan-3258117-original.jpg",
@@ -1946,7 +1959,7 @@ const characters = [
             },
 
             {
-                name: "quankr88",
+                name: "quan88",
                 avatar: "https://i.ibb.co/HKLtJsy/91995446-885014241938968-7102376830853709824-n.jpg",
                 messages: [
                     "Bên này ok không các bác",
@@ -1998,9 +2011,6 @@ const characters = [
                 messages: [
                 "Mấy ông né né em ghệ của tôi ra nhé k tôi xót lắm",
         "Em nào đụ hết",
-        "Clm chơi gái tới nổi nhìn con nào cũng quen hả cha nội",
-"Có khứa nào cuối tuần này rãnh k ibox địa chỉ đi chung nè",
-"Kk chơi gái đi chung cho đỡ buồn à",
         "Vkl bác thật nói thế mất tinh cam qua",
 "https://i.ibb.co/5vJdDBW/review-of-thanh-bui-tien-for-reup-tieu-linh-2k4-xinh-tuoi-dang-nuot-na-vu-dep-bym-non-to-3203402-ori.jpg",
         "Đụ bừa đi quan tâm gì ghệ này ghệ nọ 😆",
@@ -2026,49 +2036,8 @@ const characters = [
                 ],
             },
             {
-                name: "김민수",
-                avatar: "https://i.ibb.co/2gSvwQ4/vip-emblem-transparent-background-357958-3454-removebg-preview-1.png",
-                messages: [
-                    "여기 서비스 괜찮아요",
-                    "오늘 밤에 예약하려면 어떻게 해야 돼요",
-                    "이곳에서 숙박은 어때요?",
-                    "매우 편안하고 좋았어요",
-                    "https://i.ibb.co/2gm2Pvf/review-of-cu17cm-for-be-hani-2k-cute-xinh-xan-vu-dep-body-nong-bong-lan-dau-di-lam-3263676-original.jpg",
-"https://i.ibb.co/YRgXxzb/review-of-quan-minh-for-be-hani-2k-cute-xinh-xan-vu-dep-body-nong-bong-lan-dau-di-lam-3245337-origin.jpg",
-"https://i.ibb.co/4sNBKZ2/review-of-dark-for-reup-huyen-my-nhe-nhang-tinh-cam-yeu-chieu-nhu-nguoi-yeu-3220609-original.jpg",
-                    "이곳에 여러 번 왔어요. 항상 만족합니다",
-                    "여기 직원들이 정말 친절해요",
-                    "방이 깨끗하고 좋았어요",
-                    "이곳을 추천해요",
-                    "https://i.ibb.co/k08rdrM/photo-88-2024-10-23-11-51-38.jpg",
-"https://i.ibb.co/6b9PGtD/photo-90-2024-10-23-11-52-15.jpg",
-                    "이용해 본 분 있으면 후기를 알려 주세요",
-                    "오늘도 예약할 건데, 방이 있나요?",
-                ],
-            },
-            {
-                name: "박지훈",
-                avatar: "https://i.ibb.co/QJLcPRh/116521845-755373281884714-3118041706125876316-n.jpg",
-                messages: [
-                    "방이 너무 편안하고 좋아요",
-                    "여기 위치가 좋아서 편해요",
-                    "예약을 어떻게 해야 할지 모르겠어요",
-                    "https://i.ibb.co/kGzjh4t/photo-91-2024-10-23-11-52-15.jpg",
-"https://i.ibb.co/nB1D576/photo-92-2024-10-23-11-51-38.jpg",
-                    "저는 이곳을 자주 이용해요",
-                    "매일 이곳에 오는 게 즐거워요",
-                    "가격이 적당해서 만족스러워요",
-                    "https://i.ibb.co/LQ40dnq/photo-72-2024-10-23-11-51-38.jpg",
-"https://i.ibb.co/zGkqhv7/photo-73-2024-10-23-11-22-02.jpg",
-"https://i.ibb.co/68Sn0GT/photo-73-2024-10-23-11-52-15.jpg",
-                    "추천해요, 좋은 숙소입니다",
-                    "저도 예약하려고 하는데 방이 있나요?",
-                    "이 서비스는 정말 최고입니다",
-                    "좋은 서비스를 제공하는 곳입니다",
-                    ],
-        },
-
-        {
+    
+     
           name: "HÀ MY",
           avatar: "https://i.ibb.co/5vJdDBW/review-of-thanh-bui-tien-for-reup-tieu-linh-2k4-xinh-tuoi-dang-nuot-na-vu-dep-bym-non-to-3203402-ori.jpg",
           messages: [
@@ -2084,70 +2053,7 @@ const characters = [
                     ],
             },
             {
-                name: "이정호",
-                avatar: "https://i.ibb.co/dP0qrn1/117389932-2582842741967681-9001442317230863028-n.jpg",
-                messages: [
-                    "여기 정말 좋네요, 추천합니다",
-                    "오늘도 방 예약하려고 하는데, 괜찮을까요?",
-                    "https://i.ibb.co/M6h9Q86/photo-93-2024-10-23-11-22-02.jpg",
-"https://i.ibb.co/rH5pt2y/photo-95-2024-10-23-11-51-38.jpg",
-                    "위치가 좋고 서비스도 훌륭해요",
-                    "가격이 정말 저렴해요",
-                    "내일 예약하려는데 방이 남아 있나요?",
-                    "https://i.ibb.co/fChx501/photo-70-2024-10-23-11-52-15.jpg",
-"https://i.ibb.co/FY3XVyj/photo-71-2024-10-23-11-51-38.jpg",
-"https://i.ibb.co/3fWdpNT/photo-71-2024-10-23-11-52-15.jpg",
-                    "방 상태가 매우 깨끗했어요",
-                    "저는 항상 이곳에서 묵어요",
-                    "직원들이 매우 친절하고 전문적이에요",
-                    "이곳을 친구들에게 추천할 거예요",
-                    "서비스가 정말 마음에 들어요",
-                ],
-            },
-            {
-                name: "김수지",
-                avatar: "https://i.ibb.co/dtQh08K/kisspng-clarify-health-solutions-health-care-the-welcome-r-5d2d5a1e013a63-980000501563253278005.png",
-                messages: [
-                    "여기 방이 정말 아늑하고 좋아요",
-                    "가격이 너무 합리적이에요",
-                    "https://i.ibb.co/RHMf0Sb/photo-96-2024-10-23-11-52-15.jpg",
-"https://i.ibb.co/c1ZRRpf/photo-97-2024-10-23-11-22-02.jpg",
-                    "이곳에서 자주 묵어요",
-                    "오늘도 예약할 예정인데, 방이 있나요?",
-                    "위치도 편리하고 시설도 훌륭해요",
-                    "https://i.ibb.co/8KyjxBJ/photo-69-2024-10-23-11-22-02.jpg",
-"https://i.ibb.co/0V4LLd7/photo-69-2024-10-23-11-52-15.jpg",
-"https://i.ibb.co/Tcwy7ZX/photo-70-2024-10-23-11-22-02.jpg",
-                    "다음에도 꼭 여기서 묵을 거예요",
-                    "서비스가 좋아서 다시 오고 싶어요",
-                    "직원들이 친절하고 helpful해요",
-                    "편안한 숙소에서 좋은 시간 보내고 가요",
-                    "추천할 만한 곳이에요",
-                ],
-            },
-            {
-                name: "임성민",
-                avatar: "https://i.ibb.co/ky7Nr8n/photo-2024-01-04-18-23-44.jpg",
-                messages: [
-                    "방이 너무 깨끗하고 쾌적해요",
-                    "https://i.ibb.co/znQ14n4/photo-97-2024-10-23-11-52-15.jpg",
-"https://i.ibb.co/QJYHGfZ/photo-98-2024-10-23-11-22-02.jpg",
-                    "여기 예약하기 정말 편리해요",
-                    "친절한 서비스 덕분에 기분이 좋았어요",
-                    "방이 너무 좋고 분위기도 편안했어요",
-                    "https://i.ibb.co/rF2f6Y1/photo-68-2024-10-23-11-51-38.jpg",
-"https://i.ibb.co/rcGHtcM/photo-68-2024-10-23-11-52-15.jpg",
-                    "이곳은 가격이 저렴하고 서비스도 좋아요",
-                    "직원들이 매우 친절하고 도움이 많이 됐어요",
-                    "매번 이곳에 묵게 돼요",
-                    "다음에도 여기서 예약하려고요",
-                    "친구들에게 이곳을 추천할 거예요",
-                    "이 서비스는 정말 훌륭해요",
-
-                    ]
-            },
-
-            {
+    
                 name: "YUMI",
                 avatar: "https://i.ibb.co/SsZ2pgF/g1ixJ3Kw.jpg",
                 messages: [
@@ -2164,45 +2070,8 @@ const characters = [
                 ],
             },
             {
-                name: "오지윤",
-                avatar: "https://i.ibb.co/JHpmmsM/photo-2024-07-27-18-15-49.jpg",
-                messages: [
-                    "이곳에서의 경험은 정말 좋았어요",
-                    "방이 넓고 편안해서 좋았어요",
-                    "가격이 너무 합리적이에요",
-                    "https://i.ibb.co/DYN5XmR/photo-98-2024-10-23-11-52-15.jpg",
-"https://i.ibb.co/0c8sQYB/photo-99-2024-10-23-11-51-38.jpg",
-"https://i.ibb.co/Tkqq9NX/photo-2024-09-29-18-09-36.jpg",
-                    "직원들이 정말 친절해요",
-                    "위치가 좋고 교통도 편리해요",
-                    "https://i.ibb.co/9cmdkmG/photo-67-2024-10-23-11-22-02.jpg",
-"https://i.ibb.co/t8j6CZj/photo-67-2024-10-23-11-52-15.jpg",
-                    "이곳을 추천하고 싶어요",
-                    "매번 이곳에 묵게 되네요",
-                    "예약은 간단하고 빠르게 완료돼요",
-                    "다음에도 여기서 예약할 생각이에요",
-                    "친구들에게 이곳을 추천할 거예요",
-                ],
-            },
-            {
-                name: "홍지수",
-                avatar: "https://i.ibb.co/HhwKYL2/photo-2024-01-20-01-01-13.jpg",
-                messages: [
-                    "방이 정말 좋고, 가격도 적당해요",
-                    "여기 서비스는 정말 최고예요",
-                    "위치도 좋고 교통도 편리해요",
-                    "추천할 만한 곳이에요",
-                    "https://i.ibb.co/0BLVGRz/photo-40-2024-10-23-11-22-02.jpg",
-"https://i.ibb.co/Qn69PjL/photo-40-2024-10-23-11-51-38.jpg",
-                    "여기 자주 와서 만족스러워요",
-                    "이곳에서 묵을 때마다 좋은 경험을 해요",
-                    "친구들과 함께 오고 싶어요",
-                    "이 서비스는 정말 훌륭해요",
-                    "방이 너무 편안해서 다시 오고 싶어요",
-                    "다음에도 또 예약할 계획이에요",
-                ],
-            },
-            {
+      
+            
                 name: "THIÊN AN",
                 avatar: "https://i.ibb.co/px4G7Z6/review-of-hai-for-reup-huyen-my-nhe-nhang-tinh-cam-yeu-chieu-nhu-nguoi-yeu-3247539-original.jpg",
                 messages: [
@@ -2218,24 +2087,7 @@ const characters = [
                 ],
             },
              {
-                name: "김지훈",
-                avatar: "https://i.ibb.co/4MqZ1vz/photo-2024-01-05-11-25-44.jpg",
-                messages: [
-                    "여기 너무 좋아요, 자주 오고 싶어요",
-                    "방이 넓고 깨끗해서 편안했어요",
-                    "이곳을 다시 올 거예요",
-                    "여기 가격도 정말 괜찮아요",
-                    "https://i.ibb.co/YdvvQVC/photo-38-2024-10-23-11-52-30.jpg",
-"https://i.ibb.co/ncjgPsG/photo-39-2024-10-23-11-52-30.jpg",
-                    "서비스가 훌륭해요",
-                    "친절한 직원 덕분에 기분 좋았어요",
-                    "추천하고 싶은 숙소예요",
-                    "방이 깨끗하고 정돈되어 있어요",
-                    "다음에도 또 예약하려고 해요",
-                    "위치도 좋고 편리해요",
-                    ],
-                },
-                {
+     
                 name: "anh yêu July",
                 avatar: "https://i.ibb.co/H4hr8C5/119231544-2831857350465762-6729963575003338264-n.jpg",
                 messages: [
@@ -2864,18 +2716,18 @@ sendRandomMessage();
 
 <!-- Hỗ trợ nhanh -->
 <div id="support-section" class="content">
-    <h2>Hỗ trợ (nhanh 빠른 지원)</h2>
+    <h2>Hỗ trợ</h2>
     <p>Để nhận được hỗ trợ nhanh hơn bạn vui lòng liên hệ qua Telegram nhé:</p>
-    <a href="https://t.me/luxurygirlbooking" target="_blank" class="support-button">
+    <a href="https://t.me/phuongthaoinh" target="_blank" class="support-button">
         <i class="fab fa-telegram-plane"></i> Hỗ trợ tổng
     </a>
-    <a href="https://t.me/tvvthaoha" target="_blank" class="support-button">
+    <a href="https://Honganhxin" target="_blank" class="support-button">
         <i class="fab fa-telegram-plane"></i> Hỗ trợ viên 2
     </a>
-    <a href="https://t.me/diemk125" target="_blank" class="support-button">
+    <a href="https://yennhi1999aa" target="_blank" class="support-button">
         <i class="fab fa-telegram-plane"></i> Hỗ trợ viên 3
     </a>
-    <a href="" target="_blank" class="support-button">
+    <a href="" target="thuongvy8386aa" class="support-button">
         <i class="fab fa-telegram-plane"></i> Hỗ trợ viên 4
     </a>
     
@@ -2915,21 +2767,16 @@ sendRandomMessage();
 
 
 <div id="image-section" class="content">
-    <h2>Ảnh sex (섹스 사진)</h2>
+    <h2>Ảnh sex</h2>
     
     <!-- Thêm các nút cho từng danh mục -->
     <div class="image-buttons">
-        <button class="image-btn" onclick="showContent('upcoming')">
-            Nhật Kí Checker
-        </button>
+
         <button class="image-btn" onclick="showContent('vietnamese-girls')">
             Ảnh Gái Trung
         </button>
         <button class="image-btn" onclick="showContent('call-girls-share')">
             Share Gái Gọi
-        </button>
-        <button class="image-btn" onclick="showContent('artistic-photos')">
-            Nhật kí đặt lịch
         </button>
         <button class="image-btn" onclick="showContent('asian-girls')">
             Ảnh Gái Châu Á
@@ -3411,18 +3258,10 @@ sendRandomMessage();
         <img src="https://i.ibb.co/DYg1S19/photo-98-2024-10-23-11-22-02.jpg" alt="Image 151" style="width:150px; height:auto; margin:10px;">
         <img src="https://i.ibb.co/nzJgzTt/photo-98-2024-10-23-11-52-15.jpg" alt="Image 152" style="width:150px; height:auto; margin:10px;">
 </div>
-    <div id="artistic-photos" class="image-content" style="display:none;">
-        <p>Tin nhắn sms</p>
-        <img src="https://i.ibb.co/M5FT17M/photo-2024-09-22-14-04-33.jpg"alt="Lịch sử đặt lịch" style="width:150px; height:auto; margin:10px;">
-        <img src="https://i.ibb.co/0CG9K71/photo-2024-09-22-14-04-43.jpg" alt="Image 159" style="width:150px; height:auto; margin:10px;">
-        <img src="https://i.ibb.co/XCpPkXT/photo-2024-09-22-14-04-47.jpg" alt="Image 160" style="width:150px; height:auto; margin:10px;">
-        <img src="https://i.ibb.co/pZyHQ7s/photo-2024-09-22-14-04-50.jpg" alt="Image 161" style="width:150px; height:auto; margin:10px;">
-        <img src="https://i.ibb.co/GdK4Dkx/photo-2024-09-22-14-04-54.jpg" alt="Image 162" style="width:150px; height:auto; margin:10px;">
-        <img src="https://i.ibb.co/whwCK7P/photo-2024-09-22-14-04-56.jpg" alt="Image 163" style="width:150px; height:auto; margin:10px;">
-        <img src="https://i.ibb.co/nbNmSB9/photo-2024-09-22-14-04-59.jpg" alt="Image 164" style="width:150px; height:auto; margin:10px;">
+    
         
 
-    </div>
+ 
 
     <div id="asian-girls" class="image-content" style="display:none;">
         <p>Bạn chưa đủ điều kiện để truy cập vào các dịch vụ đặc biệt của hệ thống 💎</p>
@@ -3601,10 +3440,8 @@ sendRandomMessage();
 </head>
 <body>
 
-<script>
-function openLinkInNewTab() {
-    window.open("https://bookingluxury.github.io/khuvuc/", "_blank");
-}
+
+
 </script>
     <script>
         function redirectTo(url) {
@@ -3616,7 +3453,7 @@ function openLinkInNewTab() {
 
 <!-- Gái gọi gần tôi -->
 <div id="my-region-section" class="content">
-    <h2>Đề xuất gần bạn (주변 추천)</h2>
+    <h2>Đề xuất gần bạn</h2>
     <div class="region-list">
         <div class="region-btn" onclick="showDetails('JULY')">
             <i class="fas fa-female"></i> July 
@@ -3626,9 +3463,6 @@ function openLinkInNewTab() {
              </div>
         <div class="region-btn" onclick="showDetails('HaHuyen')">
             <i class="fas fa-female"></i> Hà Huyền 
-        </div>
-        <div class="region-btn" onclick="showDetails('SUMY')">
-            <i class="fas fa-female"></i> Sumy 
         </div>
         <div class="region-btn" onclick="showDetails('AMY')">
             <i class="fas fa-female"></i> Amy 
@@ -3666,10 +3500,10 @@ function openLinkInNewTab() {
         
         <label for="servicePackage">Gói dịch vụ:</label>
         <select id="servicePackage">
-            <option value="basic">Gói Thường (레귤러 패키지)</option>
-            <option value="vip">Gói VIP (VIP 패키지)</option>
-            <option value="luxury">Gói Luxury (프리미엄 패키지)</option>
-            <option value="vip-tour">Gói VIP Tour (VIP 투어 패키지)</option>
+            <option value="basic">Gói Thường </option>
+            <option value="vip">Gói VIP</option>
+            <option value="luxury">Gói Luxury</option>
+            <option value="vip-tour">Gói VIP Tour</option>
         </select>
           <div id="character-status">
         <p id="status">Trạng thái: Đang hoạt động</p>
@@ -3682,16 +3516,16 @@ function openLinkInNewTab() {
 <!-- Modal nhập mã đặt lịch -->
 <div id="bookingCodeModal" class="modal" style="display: none;">
     <div class="modal-content">
-        <h4>Nhập Mã Đặt Lịch (예약 성공!)</h4>
+        <h4>Nhập Mã Đặt Lịch</h4>
         
-        <p>Mã xác nhận đặt lịch của anh là (그의 예약 확인 코드는 다음과 같습니다):</p>
+        <p>Mã xác nhận đặt lịch của anh là:</p>
         <input type="text" id="bookingCodeInput" placeholder="Nhập mã đặt lịch">
         
         <button onclick="submitBookingCode()">Xác nhận</button>
         <button onclick="closeModal('bookingCodeModal')">Đóng</button>
         
         <p>
-            <a href="https://t.me/sglbhaiyen12" class="button-link">Lần đầu sử dụng dịch vụ bấm tại đây</a>
+            <a href="https://t.me/thuongvy8386aa" class="button-link">Lần đầu sử dụng dịch vụ bấm tại đây</a>
         </p>
     </div>
 </div>
@@ -3705,8 +3539,8 @@ function openLinkInNewTab() {
 
 <div id="errorNotification" class="success-notification" style="display: none;">
     <p>Mã đặt lịch không chính xác. Vui lòng thử lại.</p>
-    <p>Liên hệ hỗ trợ tại: <a href="https://t.me/sglbhaiyen12">đây</a></p>
-    <p><a href="https://t.me/luxurygirlbooking">Trợ giúp trực tuyến</a></p>
+    <p>Liên hệ hỗ trợ tại: <a href="https://t.me/yennhi1999aa">đây</a></p>
+    <p><a href="https://t.me/huongvy8386aa">Trợ giúp trực tuyến</a></p>
 </div>
 
 
@@ -3860,13 +3694,13 @@ function closeNotification() {
               <div id="info-JULY" style="display: none">
                   <h4>Thông tin</h4>
                   <div class="info-content">
-                      <img src="https://i.ibb.co/zrkY9pb/395590541-1042794623814007-9064456112968543170-n.jpg" alt="JULY Image" class="info-image" style="height: 250px;">
+                      <img src="https://ibb.co/s56HByh"><img src="https://i.ibb.co/s56HByh/photo-17-2024-09-20-08-41-30.jpg" alt="JULY Image" class="info-image" style="height: 250px;">
                       <div class="info-text">
-                        <p><i class="fas fa-money-bill-wave"></i> <strong>Giá tiền 값 :</strong> 105.000 원 / 2 lần quan hệ  (90 phút)</p>
+                        <p><i class="fas fa-money-bill-wave"></i> <strong></strong></p>
                         <div id="contact-info" class="hidden-info">
-                          <p><i class="fas fa-phone"></i> <strong>SDT:</strong> +82 10 3891 44**</p>
+                          <p><i class="fas fa-phone"></i> <strong></strong></p>
                             <div class="location-info">
-                              <span id="location-range-JULY">Địa điểm đang cập nhật</span>
+                             
                           </div>
                             <style>
                               /* styles.css */
@@ -4061,12 +3895,10 @@ function closeNotification() {
   <a href="https://ibb.co/XSvCbdv"><img src="https://i.ibb.co/XSvCbdv/photo-5-2024-09-20-08-41-30.jpg" alt="Image New 4" style="height: 190px; width: auto;"></a>
   <a href="https://ibb.co/1MVVxSg"><img src="https://i.ibb.co/1MVVxSg/photo-9-2024-09-20-08-41-30.jpg" alt="Image New 5" style="height: 190px; width: auto;"></a>
   <a href="https://ibb.co/d55W38g"><img src="https://i.ibb.co/d55W38g/photo-15-2024-09-20-08-41-30.jpg" alt="Image New 6" style="height: 190px; width: auto;"></a>
-  <a href="https://ibb.co/s56HByh"><img src="https://i.ibb.co/s56HByh/photo-17-2024-09-20-08-41-30.jpg" alt="Image New 7" style="height: 190px; width: auto;"></a>
   <a href="https://ibb.co/j6x96Wy"><img src="https://i.ibb.co/j6x96Wy/photo-18-2024-09-20-08-41-30.jpg" alt="Image New 8" style="height: 190px; width: auto;"></a>
   <a href="https://ibb.co/jWwdDhF"><img src="https://i.ibb.co/jWwdDhF/427795242-1104148964345239-7093685406088560536-n.jpg" alt="Image New 9" style="height: 190px; width: auto;"></a>
   <a href="https://ibb.co/tCKJvGb"><img src="https://i.ibb.co/tCKJvGb/photo-2024-09-05-04-54-14.jpg" alt="Image New 10" style="height: 190px; width: auto;"></a>
   <a href="https://ibb.co/Pr3HRMn"><img src="https://i.ibb.co/Pr3HRMn/photo-2024-09-05-04-54-15-2.jpg" alt="Image New 11" style="height: 190px; width: auto;"></a>
-  <a href="https://ibb.co/D9RLFvL"><img src="https://i.ibb.co/D9RLFvL/photo-2024-09-05-04-54-15.jpg" alt="Image New 12" style="height: 190px; width: auto;"></a>
   <a href="https://ibb.co/b518sDH"><img src="https://i.ibb.co/b518sDH/Untitled-design-14.png" alt="Image New 13" style="height: 190px; width: auto;"></a>
   
 </div>
@@ -4296,13 +4128,7 @@ function closeNotification() {
               <!-- Hình ảnh -->
               <div id="images-YUMI" style="display: none">
                   <h4>Hình ảnh</h4>
-                  <a href="https://ibb.co/s3x2Nbr"><img src="https://i.ibb.co/s3x2Nbr/286419205-1455590301556301-4419615924934059488-n.jpg" alt="Image 1" style="height: 190px; width: auto;"></a>
-<a href="https://ibb.co/TWL7SKM"><img src="https://i.ibb.co/TWL7SKM/302431620-1523119151470082-6017363333342789886-n.jpg" alt="Image 2" style="height: 190px; width: auto;"></a>
-<a href="https://ibb.co/rk2ZFDz"><img src="https://i.ibb.co/rk2ZFDz/303505058-1523119218136742-7220536016051488811-n.jpg" alt="Image 3" style="height: 190px; width: auto;"></a>
-<a href="https://ibb.co/Btt1mw5"><img src="https://i.ibb.co/Btt1mw5/319012117-1586807448434585-8857040735483383765-n.jpg" alt="Image 4" style="height: 190px; width: auto;"></a>
-<a href="https://ibb.co/SrYrBHQ"><img src="https://i.ibb.co/SrYrBHQ/415274242-1816989965416331-2731987041148296883-n.jpg" alt="Image 5" style="height: 190px; width: auto;"></a>
 <a href="https://ibb.co/nBCy6wt"><img src="https://i.ibb.co/nBCy6wt/442414576-1907317203050273-7272925531125045232-n.jpg" alt="Image 6" style="height: 190px; width: auto;"></a>
-<a href="https://ibb.co/jhpMN0S"><img src="https://i.ibb.co/jhpMN0S/462743427-2016048275510498-4384882081891702551-n.jpg" alt="Image 7" style="height: 190px; width: auto;"></a>
 <a href="https://ibb.co/tMkQrPS"><img src="https://i.ibb.co/tMkQrPS/photo-2024-09-05-04-55-41.jpg" alt="Image 8" style="height: 190px; width: auto;"></a>
 <a href="https://ibb.co/6RKR3x0"><img src="https://i.ibb.co/6RKR3x0/photo-2024-09-05-04-55-42-2.jpg" alt="Image 9" style="height: 190px; width: auto;"></a>
 <a href="https://ibb.co/9v5mDwW"><img src="https://i.ibb.co/9v5mDwW/photo-2024-09-05-04-55-42-5.jpg" alt="Image 10" style="height: 190px; width: auto;"></a>
@@ -4316,7 +4142,6 @@ function closeNotification() {
 <a href="https://ibb.co/zx3Y05J"><img src="https://i.ibb.co/zx3Y05J/photo-2024-09-05-04-55-43-5.jpg" alt="Image 18" style="height: 190px; width: auto;"></a>
 <a href="https://ibb.co/ZNd6qKR"><img src="https://i.ibb.co/ZNd6qKR/photo-2024-09-05-04-55-45-2.jpg" alt="Image 19" style="height: 190px; width: auto;"></a>
 <a href="https://ibb.co/k8wKwXT"><img src="https://i.ibb.co/k8wKwXT/photo-2024-09-05-04-55-45.jpg" alt="Image 20" style="height: 190px; width: auto;"></a>
-<a href="https://ibb.co/BCjyKQF"><img src="https://i.ibb.co/BCjyKQF/photo-2024-09-05-04-55-46.jpg" alt="Image 21" style="height: 190px; width: auto;"></a>
 <a href="https://ibb.co/kJjD5YG"><img src="https://i.ibb.co/kJjD5YG/taoanhdep-lam-net-anh-52903.jpg" alt="Image 22" style="height: 190px; width: auto;"></a>
 
                   
@@ -4536,216 +4361,7 @@ function closeNotification() {
 
 
           
-          <div id="detail-SUMY" class="detail-info">
-            <h3>SUMY</h3>
-            <div class="button-container">
-                <button class="info-button" onclick="toggleContent('SUMY', 'info')">
-                    <i class="fas fa-info-circle"></i> Thông tin
-                </button>
-                <button class="info-button" onclick="toggleContent('SUMY', 'images')">
-                    <i class="fas fa-images"></i> Hình ảnh
-                </button>
-               <button onclick="openBookingModal('SUMY')">Đặt lịch</button>
-                </button>
-            </div>
         
-            <!-- Thông tin chi tiết -->
-            <div id="info-SUMY" style="display: none">
-                <h4>Thông tin</h4>
-                <div class="info-content">
-                    <img src="https://i.ibb.co/PY0fpmk/300807010-1276755979806415-8863721451651082149-n.jpg" alt="SUMY Image" class="info-image" style="height: 250px;">
-                    <div class="info-text">
-                   
-                        <style>
-                          /* styles.css */
-                          .location-info {
-                              font-size: 17px;
-                              color: #00ff00; /* Màu xanh lá */
-                              font-weight: bold;
-                          }
-                          .info-image { 
-                              height: 250px; 
-                          }
-                          .button-container, .detail-info { 
-                              text-align: center; 
-                          }
-                          
-                      </style>
-                      
-                      <script>
-                         // Hàm khởi tạo vị trí
-                         function requestLocation() {
-                            if (navigator.geolocation) {
-                                // Yêu cầu lấy vị trí của người dùng
-                                navigator.geolocation.getCurrentPosition(
-                                    (position) => {
-                                        const latitude = position.coords.latitude;
-                                        const longitude = position.coords.longitude;
-                    
-                                        // Gọi Kakao Maps API để lấy thông tin khu vực từ vĩ độ và kinh độ
-                                        fetch(`https://dapi.kakao.com/v2/local/geo/coord2regioncode.json?x=${longitude}&y=${latitude}`, {
-                                            method: 'GET',
-                                            headers: {
-                                                'Authorization': 'KakaoAK 12873a4a25a298774293ab8c899a1432'  // Thay YOUR_KAKAO_API_KEY bằng API Key thực tế của bạn
-                                            }
-                                        })
-                                        .then(response => response.json())
-                                        .then(data => {
-                                          if (data.documents && data.documents.length > 0) {
-                            const region1 = data.documents[0].region_1depth_name;  // Quận hoặc khu vực
-                            const region2 = data.documents[0].region_2depth_name;  // Thị trấn hoặc xã
-                            const region3 = data.documents[0].region_3depth_name || "Không xác định";  // Khu vực nhỏ hơn
-                                                      document.getElementById('location-range-SUMY').textContent = location; // Cập nhật vị trí hiển thị
-                                                  } else {
-                                                      document.getElementById('location-range-SUMY').textContent = "Đang xác định";
-                                                  }
-                                              })
-                                              .catch(err => {
-                                                  console.error("Error getting location:", err);
-                                                  document.getElementById('location-range-SUMY').textContent = "Lỗi khi lấy vị trí.";
-                                              });
-                                      },
-                                      (error) => {
-                                          console.error("Geolocation error:", error);
-                                          alert("Không thể lấy vị trí. Vui lòng kiểm tra cài đặt vị trí của bạn.");
-                                      }
-                                  );
-                              } else {
-                                  alert("Trình duyệt của bạn không hỗ trợ Geolocation.");
-                              }
-                          }
-                      
-                          // Gọi hàm yêu cầu vị trí khi trang được tải
-                          requestLocation();
-                      </script>
-                      
-                      <!-- HTML phần tử hiển thị vị trí -->
-                      <div class="location-info">
-                          <span id="location-range-SUMY">Đang tải vị trí...</span>
-                      </div>
-                                    <button onclick="showInputBox('SUMY', 'phone')">SDT</button>
-                        <button onclick="showInputBox('SUMY', 'telegram')">Telegram</button>
-                        <p><i class="fas fa-clock"></i> <strong>Thời gian gia nhập:</strong> 05/05/2024 15:56</p>
-                        <p><i class="fas fa-user"></i> <strong>Hoạt động:</strong> <span id="active-status-SUMY" class="active-status">Đang hoạt động</span></p>                        </p>
-                    </p>
-                      </div>
-                  </div>
-
-        
-               
-                  <h4>Giới thiệu</h4>
-                  <p>
-  Body nóng bỏng,giọng nói nhẹ nhàng êm ái,tình cảm chiều khách</p>
-  <p>Gương mặt khả ái xinh xắn chuẩn baby và nhí nhảnh</p>
-  <p>Đôi môi hồng luôn nở nụ cười xinh.Bé ngây thơ trong sáng vừa bước chân vào con đường tơ lụa</p>
-  <p>Thân hình cực ngon lành,với toàn bộ body hàng real nhé</p>
-  <p>Đặc biệt đẹp nhất vòng 1 và vòng 4 tròn căng và khin khít
-  <p>Ngon lành với ai gu teen xinh,dáng đẹp
-                </p>
-                <p><i class="fas fa-birthday-cake"></i> <strong>Năm sinh:</strong> 2003</p>
-                <p><i class="fas fa-ruler-vertical"></i> <strong>Cao (cm):</strong> 162</p>
-                <p><i class="fas fa-weight-hanging"></i> <strong>Nặng (kg):</strong> 45</p>
-                <p><i class="fas fa-tape"></i> <strong>Vòng 1 (cm):</strong> 87</p>
-                <p><i class="fas fa-tape"></i> <strong>Vòng 2 (cm):</strong> 58</p>
-                <p><i class="fas fa-tape"></i> <strong>Vòng 3 (cm):</strong> 89</p>
-                <p><i class="fas fa-globe"></i> <strong>Xuất xứ:</strong> DHS</p>
-                <p><i class="fas fa-scissors"></i> <strong>Lông bím:</strong> Gọn gàng</p>
-                <p><i class="fas fa-smile"></i> <strong>Mặt:</strong> Xinh</p>
-            <p><i class="fas fa-eye"></i> <strong>Nhận dạng:</strong> Năng động, body săn chắc</p>
-            <p><i class="fas fa-clock"></i> <strong>Hoạt động:</strong> Nếu trả lời thì đang rãnh</p>
-            </div>
-        
-            <div id="review-container-SUMY" class="review-section">
-    <h4>Đánh giá của bạn cho SUMY</h4>
-    <div class="stars">
-        <span class="star" onclick="rateStar('SUMY', 1)">&#9733;</span>
-        <span class="star" onclick="rateStar('SUMY', 2)">&#9733;</span>
-        <span class="star" onclick="rateStar('SUMY', 3)">&#9733;</span>
-        <span class="star" onclick="rateStar('SUMY', 4)">&#9733;</span>
-        <span class="star" onclick="rateStar('SUMY', 5)">&#9733;</span>
-    </div>
-</div>
-<script>
-   
-    function rateStar(character, star) {
-     const result = document.getElementById(`rating-result-${character}`);
- 
-     if (result) {
-         // Hiển thị thông báo đánh giá
-         result.innerText = `Bạn đã đánh giá ${star} sao cho ${character}!`;
- 
-         // Sau 3 giây, hiển thị thông báo cảm ơn và ẩn đi sau đó
-         setTimeout(() => {
-             result.innerText = `Cảm ơn bạn đã đánh giá cho ${character}. Mỗi lượt đánh giá của bạn góp phần thay đổi thứ hạng của cô ấy! Chỉ tính lần đầu trong ngày ❤️`;
- 
-             // Ẩn thông báo sau thêm 2 giây nữa
-             setTimeout(() => {
-                 result.innerText = ''; // Xóa nội dung để ẩn đi
-                 result.style.display = 'none'; // Ẩn phần tử
-             }, 2000);
-         }, 3000);
-     } else {
-         console.error("Không tìm thấy phần tử kết quả đánh giá!");
-     }
- }
- 
- // Tạo phần tử để hiển thị kết quả đánh giá trong HTML (nếu chưa có)
- document.querySelectorAll('.review-section').forEach(section => {
-     const character = section.id.split('-')[2]; // Lấy tên nhân vật từ ID
-     if (!document.getElementById(`rating-result-${character}`)) {
-         const resultElement = document.createElement('p');
-         resultElement.id = `rating-result-${character}`;
-         section.appendChild(resultElement);
-     }
- });
-     
- </script>
-            
-            <style>
-                .review-section {
-                    margin-top: 20px;
-                    padding: 10px;
-                    background-color: #1a1a1a;
-                    color: #ffffff;
-                    border-radius: 5px;
-                }
-                .stars {
-                    font-size: 20px;
-                    color: #ffcc00;
-                }
-                .star {
-                    cursor: pointer;
-                }
-            </style>
-
-            <!-- Hình ảnh -->
-            <div id="images-SUMY" style="display: none">
-                <h4>Hình ảnh</h4>
-                <a href="https://ibb.co/n6r9DLv"><img src="https://i.ibb.co/n6r9DLv/312117598-1316768902471789-6649885241373358674-n.jpg" alt="Image 1" class="info-image" style="height: 190px; width: auto;"></a>
-                <a href="https://ibb.co/2P9DGwr"><img src="https://i.ibb.co/2P9DGwr/312125416-1316768895805123-7362118898328060624-n.jpg" alt="Image 2" class="info-image" style="height: 190px; width: auto;"></a>
-                <a href="https://ibb.co/LvK23vd"><img src="https://i.ibb.co/LvK23vd/315768694-1346564986158847-1482898782351531385-n.jpg" alt="Image 3" class="info-image" style="height: 190px; width: auto;"></a>
-                <a href="https://ibb.co/2qmd9gH"><img src="https://i.ibb.co/2qmd9gH/316308133-1346565069492172-3749302851724923760-n.jpg" alt="Image 4" class="info-image" style="height: 190px; width: auto;"></a>
-                <a href="https://ibb.co/zxHTDVP"><img src="https://i.ibb.co/zxHTDVP/352285612-180234738329371-226787276075776172-n.jpg" alt="Image 5" class="info-image" style="height: 190px; width: auto;"></a>
-                <a href="https://ibb.co/L6mzY40"><img src="https://i.ibb.co/L6mzY40/352337130-1978668475824611-3531216239644036803-n.jpg" alt="Image 6" class="info-image" style="height: 190px; width: auto;"></a>
-                <a href="https://ibb.co/1XPpgDZ"><img src="https://i.ibb.co/1XPpgDZ/396715181-1546600216155322-2765896441797633820-n.jpg" alt="Image 7" class="info-image" style="height: 190px; width: auto;"></a>
-                <a href="https://ibb.co/bdzBYrL"><img src="https://i.ibb.co/bdzBYrL/301479405-1278726196276060-3119136811918488887-n.jpg" alt="Image 8" class="info-image" style="height: 190px; width: auto;"></a>
-                <a href="https://ibb.co/tL611hf"><img src="https://i.ibb.co/tL611hf/301688705-1278726202942726-16332701001868072-n.jpg" alt="Image 9" class="info-image" style="height: 190px; width: auto;"></a>
-                <a href="https://ibb.co/X8J4tkH"><img src="https://i.ibb.co/X8J4tkH/306361317-1296303247851688-6345018978779953572-n.jpg" alt="Image 10" class="info-image" style="height: 190px; width: auto;"></a>
-                <a href="https://ibb.co/WGBcvtN"><img src="https://i.ibb.co/WGBcvtN/333360590-1828731027513121-695435459402487687-n.jpg" alt="Image 11" class="info-image" style="height: 190px; width: auto;"></a>
-                <a href="https://ibb.co/nBNtDKW"><img src="https://i.ibb.co/nBNtDKW/345431883-1372271863553145-5175000140282532437-n.jpg" alt="Image 12" class="info-image" style="height: 190px; width: auto;"></a>
-                <a href="https://ibb.co/2kTDLt4"><img src="https://i.ibb.co/2kTDLt4/351773831-199424529321609-2330945694266782643-n.jpg" alt="Image 13" class="info-image" style="height: 190px; width: auto;"></a>
-            </div>
-            </div>
-        
-            <!-- Đặt lịch -->
-            <div id="bookings-SUMY" style="display: none">
-                <h4>Đặt lịch</h4>
-                <p><i class="fas fa-book"></i> <strong>Hướng dẫn đặt lịch:</strong>
-                    HÃY LÀ MỘT CHECKER VĂN MINH !</p>
-                <p><i class="fas fa-calendar-alt"></i> <strong>Vui lòng đăng nhập để đặt lịch !</strong></p>
-        </div>
-    </div>
-          
         
     <div id="detail-AMY" class="detail-info">
         <h3>AMY</h3>
@@ -4842,8 +4458,7 @@ function closeNotification() {
                     <i class="fas fa-user"></i> Hoạt động: <span class="active-status">Đang hoạt động</span>
     
                     <div id="bio-AMY" style="display: block;">
-                        <h4>Giới thiệu</h4>
-                        <p>
+                        
                             <h4>Giới thiệu</h4>
                             <p>
                                 Em cực xinh cực dâm vú mông cực to chỉ cần một lần tiếp xúc sẽ là một ấn tượng sâu đậm</p>
@@ -5369,9 +4984,7 @@ function closeNotification() {
               <!-- Hình ảnh -->
               <div id="images-MINA" style="display: none">
                   <h4>Hình ảnh</h4>
-                  <a href="https://ibb.co/FwXRmJV"><img src="https://i.ibb.co/FwXRmJV/367708333-959487338453907-5381194647223869853-n.jpg" alt="Image New 42" style="height: 190px; width: auto;"></a>
                   <a href="https://ibb.co/8d3nnBZ"><img src="https://i.ibb.co/8d3nnBZ/383337930-978863159849658-4641272384526547692-n.jpg" alt="Image New 43" style="height: 190px; width: auto;"></a>
-                  <a href="https://ibb.co/VJj95PD"><img src="https://i.ibb.co/VJj95PD/381003805-978864963182811-8835941904392445166-n.jpg" alt="Image New 44" style="height: 190px; width: auto;"></a>
                   <a href="https://ibb.co/MBpmQqb"><img src="https://i.ibb.co/MBpmQqb/407908628-1013974159671891-2417822945034929073-n.jpg" alt="Image New 45" style="height: 190px; width: auto;"></a>
                   <a href="https://ibb.co/R67pZxq"><img src="https://i.ibb.co/R67pZxq/423236603-1042520383483935-3619898868584313772-n.jpg" alt="Image New 46" style="height: 190px; width: auto;"></a>
                   <a href="https://ibb.co/GQ5wry4"><img src="https://i.ibb.co/GQ5wry4/422974615-1042520403483933-1330128733791845372-n.jpg" alt="Image New 47" style="height: 190px; width: auto;"></a>
@@ -5380,8 +4993,6 @@ function closeNotification() {
                   <a href="https://ibb.co/6wmMyqx"><img src="https://i.ibb.co/6wmMyqx/449039576-1124677385268234-7665507449582176569-n.jpg" alt="Image New 50" style="height: 190px; width: auto;"></a>
                   <a href="https://ibb.co/8gfpCVM"><img src="https://i.ibb.co/8gfpCVM/449039576-1124677408601565-3024710156838684119-n.jpg" alt="Image New 51" style="height: 190px; width: auto;"></a>
                   <a href="https://ibb.co/RjBPhXC"><img src="https://i.ibb.co/RjBPhXC/453315351-1144148666654439-988129998488451481-n.jpg" alt="Image New 52" style="height: 190px; width: auto;"></a>
-                  <a href="https://ibb.co/2dgpn06"><img src="https://i.ibb.co/2dgpn06/453176893-1144148756654430-1313657927490721027-n.jpg" alt="Image New 53" style="height: 190px; width: auto;"></a>
-                  <a href="https://ibb.co/PQk7R8G"><img src="https://i.ibb.co/PQk7R8G/454324406-1149067806162525-7507744949658804570-n.jpg" alt="Image New 54" style="height: 190px; width: auto;"></a>
                   <a href="https://ibb.co/vz1vNVb"><img src="https://i.ibb.co/vz1vNVb/456599617-1160972514972054-4029686110250322599-n.jpg" alt="Image New 55" style="height: 190px; width: auto;"></a>
                   <a href="https://ibb.co/cQwTPdX"><img src="https://i.ibb.co/cQwTPdX/456603795-1160972528305386-3708613599631951145-n.jpg" alt="Image New 56" style="height: 190px; width: auto;"></a>
                   <a href="https://ibb.co/k4GVGzH"><img src="https://i.ibb.co/k4GVGzH/456694132-1160972558305383-3403657865890027602-n.jpg" alt="Image New 57" style="height: 190px; width: auto;"></a>
@@ -5828,7 +5439,6 @@ document.querySelectorAll('.review-section').forEach(section => {
         <a href="https://ibb.co/6FjS0GS"><img src="https://i.ibb.co/6FjS0GS/photo-8-2024-09-20-09-20-50.jpg" alt="Image New 84" style="height: 190px; width: auto;"></a>
         <a href="https://ibb.co/BqDCpqz"><img src="https://i.ibb.co/BqDCpqz/photo-9-2024-09-20-09-20-50.jpg" alt="Image New 85" style="height: 190px; width: auto;"></a>
         <a href="https://ibb.co/BjCDR2V"><img src="https://i.ibb.co/BjCDR2V/photo-10-2024-09-20-09-20-50.jpg" alt="Image New 86" style="height: 190px; width: auto;"></a>
-        <a href="https://ibb.co/VCgVpv9"><img src="https://i.ibb.co/VCgVpv9/photo-11-2024-09-20-09-20-50.jpg" alt="Image New 87" style="height: 190px; width: auto;"></a>
         <a href="https://ibb.co/gS8LgCR"><img src="https://i.ibb.co/gS8LgCR/photo-12-2024-09-20-09-20-50.jpg" alt="Image New 88" style="height: 190px; width: auto;"></a>
         <a href="https://ibb.co/yWpP3wN"><img src="https://i.ibb.co/yWpP3wN/photo-13-2024-09-20-09-20-50.jpg" alt="Image New 89" style="height: 190px; width: auto;"></a>
         <a href="https://ibb.co/YLw1YZ6"><img src="https://i.ibb.co/YLw1YZ6/photo-14-2024-09-20-09-20-50.jpg" alt="Image New 90" style="height: 190px; width: auto;"></a>
@@ -6355,6 +5965,297 @@ document.querySelectorAll('.review-section').forEach(section => {
     </script>
 </body>
 </html>
+
+
+<div class="ranking-container">
+    <div class="ranking-header">Bảng Xếp Hạng Tháng 11</div>
+    <div class="ranking-controls">
+        <button onclick="sortRankings('votes')">Sắp xếp theo Votes</button>
+        <button onclick="sortRankings('change')">Sắp xếp theo Thay Đổi</button>
+        <button onclick="sortRankings('rating')">Sắp xếp theo Đánh Giá</button>
+    </div>
+    <div class="ranking-container">
+        <ul class="ranking-list" id="ranking-list"></ul>
+    </div>
+    
+</div>
+<!-- Thêm CSS -->
+<style>
+    body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #121212;
+            color: #fff;
+        }
+
+        .ranking-container {
+            max-width: 800px;
+            margin: 50px auto;
+            background: #1e1e1e;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+        }
+
+        .ranking-header {
+            text-align: center;
+            font-size: 24px;
+            color: #fff;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5); /* Đổ bóng cho chữ */
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+
+        .ranking-controls {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .ranking-controls button {
+            background: #ff6b6b;
+            color: #000000;
+            border: none;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5); /* Đổ bóng cho chữ */
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            border: 1px solid #fff; /* Viền vàng */
+
+            margin: 0 10px;
+            transition: background 0.3s ease;
+        }
+
+        .ranking-controls button:hover {
+            background: #1a1515;
+            color: #ffffff;
+        }
+
+        .ranking-list {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .ranking-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 15px;
+            background: #292929;
+            border-bottom: 1px solid #444;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            transition: background 0.3s ease, transform 0.3s ease;
+        }
+
+        .ranking-item:hover {
+            background: #333;
+            transform: translateY(-3px);
+        }
+
+        .ranking-position {
+            font-size: 20px;
+            font-weight: bold;
+            color: #ffd700;
+            width: 40px;
+            text-align: center;
+            position: relative;
+        }
+   
+
+        .ranking-avatar {
+            width: 70px;
+            height: 70px;
+            margin: 0 15px;
+            border-radius: 10px;
+            overflow: hidden;
+            border: 2px solid #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        .ranking-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .ranking-avatar img:hover {
+            transform: scale(1.1);
+        }
+
+        .ranking-info {
+            flex: 1;
+        }
+
+        .ranking-name {
+            font-size: 18px;
+            font-weight: bold;
+            margin: 0;
+            color: #fff;
+        }
+
+        .ranking-likes {
+            font-size: 16px;
+            color: #ff6b6b;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .ranking-likes i {
+            margin-right: 5px;
+        }
+
+        .ranking-change {
+            font-size: 16px;
+            font-weight: bold;
+            color: #4caf50;
+        }
+
+        .ranking-change.negative {
+            color: #e53935;
+        }
+
+        .ranking-ratings {
+            font-size: 14px;
+            color: #bbb;
+     }        
+/* Định nghĩa chung cho biểu tượng đặc biệt */
+.special-icon {
+    width: 30px;
+    height: 30px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    display: inline-block;
+    margin-left: 5px;
+    vertical-align: middle;
+}
+
+/* Vương miện cho Top 1 */
+.ranking-position.top-1 .special-icon {
+    background-image: url('https://i.ibb.co/wSQJfrg/64ec2c8fedc1c.png');
+}
+
+/* Ngôi sao cho Top 2 */
+.ranking-position.top-2 .special-icon {
+    background-image: url('https://i.ibb.co/HgdLXyT/671bab6aa4122.png');
+}
+
+/* Huy chương cho Top 3 */
+.ranking-position.top-3 .special-icon {
+    background-image: url('https://i.ibb.co/7pykV2z/2055905-removebg-preview.png');
+}
+
+</style>
+<script>
+
+
+
+   const rankings = [
+    { position: 1, name: "Chang", likes: 26035, change: 4.29, ratings: 9450, avatar: "https://i.ibb.co/CMzrMHz/378854303-855617289244178-5284751463597591029-n.jpg", rating: 5 },
+    { position: 2, name: "Gia Hân", likes: 20340, change: -3.21, ratings: 6146, avatar: "https://i.ibb.co/1TRWLYN/448066649-3778888015771584-1306281735794756456-n.jpg", rating: 4.5 },
+    { position: 3, name: "Thúy Vy", likes: 19021, change: 5.56, ratings: 4753, avatar: "https://i.ibb.co/vXtLZBD/photo-2022-12-27-10-55-09.jpg", rating: 4.5 },
+    { position: 4, name: "JenNi", likes: 17730, change: -3.72, ratings: 4012, avatar: "https://i.ibb.co/fv3cs1W/461767365-18326685538194877-298191053835901842-n.jpg", rating: 4.5 },
+    { position: 5, name: "An Nhi", likes: 15136, change: 0.62, ratings: 3590, avatar: "https://i.ibb.co/QXDZgJ1/reup-be-ana-pga-chuan-mat-xinh-body-dep-vu-to-dam-tiep-cac-boss-3113753-original.jpg", rating: 4 },
+    { position: 6, name: "Hạ Vũ", likes: 14373, change: 0.33, ratings: 2567, avatar: "https://i.ibb.co/t33RTG6/398466992-1133936840908077-2787695977615575197-n.jpg", rating: 4 },
+    { position: 7, name: "Anh Thư", likes: 12346, change: -0.87, ratings: 2244, avatar: "https://i.ibb.co/P91y2Dp/photo-2024-08-15-12-49-14.jpg", rating: 4 },
+    { position: 8, name: "Yuna", likes: 10332, change: 1.38, ratings: 1670, avatar: "https://i.ibb.co/7gT51Mr/458315545-2877650585726341-611499681677932774-n.jpg", rating: 3.5 },
+    { position: 9, name: "Lan Vy", likes: 9317, change: -0.73, ratings: 1341, avatar: "https://i.ibb.co/GWmbNJt/426318819-1098436931490982-4805370043843722560-n.jpg", rating: 3.5 },
+    { position: 10, name: "Huyền Anh", likes: 8295, change: -0.67, ratings: 1084, avatar: "https://i.ibb.co/YpKMmTm/photo-2022-12-22-09-00-19.jpg", rating: 3 },
+];
+
+rankings.forEach((item, index) => {
+    const specialClass = item.position === 1 ? "top-1"
+        : item.position === 2 ? "top-2"
+        : item.position === 3 ? "top-3" : "";
+    });      
+
+const rankingList = document.getElementById("ranking-list");
+
+// Hàm tăng số liệu ngẫu nhiên
+function updateDynamicData() {
+    rankings.forEach(item => {
+        const likeChange = Math.floor(Math.random() * 5) + 1; // Tăng 1-5 lượt thích
+        const percentChange = Math.random() * 0.1; // Tăng chậm 0.1%
+        item.likes += likeChange;
+        item.change += percentChange;
+        item.ratings += Math.floor(Math.random() * 2); // Thêm số lượt đánh giá
+    });
+    renderRankings();
+}
+
+// Hàm tạo hiệu ứng động
+function animateValue(element, start, end, duration) {
+    let startTime = null;
+
+    function step(currentTime) {
+        if (!startTime) startTime = currentTime;
+        const progress = Math.min((currentTime - startTime) / duration, 1);
+        const value = Math.floor(progress * (end - start) + start);
+        element.textContent = value;
+
+        if (progress < 1) {
+            requestAnimationFrame(step);
+        }
+    }
+
+    requestAnimationFrame(step);
+}
+
+function renderRankings() {
+    rankingList.innerHTML = ""; // Xóa nội dung cũ
+
+    rankings.forEach((item) => {
+        const specialClass = item.position === 1 ? "top-1"
+            : item.position === 2 ? "top-2"
+            : item.position === 3 ? "top-3" : "";
+
+        const listItem = document.createElement("li");
+        listItem.className = `ranking-item ${specialClass}`;
+        listItem.innerHTML = `
+            <div class="ranking-position">
+                ${item.position}
+                ${specialClass ? '<div class="special-icon"></div>' : ""}
+            </div>
+            <div class="ranking-avatar">
+                <img src="${item.avatar}" alt="${item.name}">
+            </div>
+            <div class="ranking-info">
+                <p class="ranking-name">${item.name}</p>
+                <div class="ranking-likes">
+                    <i class="fas fa-heart"></i> 
+                    <span class="likes-count">${item.likes}</span> Thích
+                    <span class="ranking-ratings">${item.ratings} lượt đánh giá</span>
+                </div>
+            </div>
+            <div class="ranking-change ${item.change < 0 ? "negative" : ""}">
+                <span class="change-count">${item.change.toFixed(2)}</span>% 
+            </div>
+        `;
+        rankingList.appendChild(listItem);
+    });
+}
+function sortRankings(criteria) {
+    rankings.sort((a, b) => {
+        if (criteria === "likes") return b.likes - a.likes;
+        if (criteria === "change") return b.change - a.change;
+        if (criteria === "rating") return b.rating - a.rating;
+        return 0;
+    });
+    renderRankings();
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+    renderRankings();
+    setInterval(updateDynamicData, 3000); // Cập nhật số liệu mỗi 3 giây
+});
+</script>
+</body>
+</html>
+
 
 <!DOCTYPE html>
 <html lang="vi">
@@ -6921,10 +6822,9 @@ border-radius: 5px; /* Bo góc ảnh */
 <body>
 
 
-<script>
-    let online = 227;  // Số người online ban đầu
-    let vipMembers = 1821;  // Tổng VIP Members ban đầu
-    let visitCount = 85581;  // Tổng lượt truy cập ban đầu
+    <script>let online = 427;  // Số người online ban đầu
+        let vipMembers = 3821;  // Tổng VIP Members ban đầu
+        let visitCount = 105581;  // Tổng lượt truy cập ban đầu
 
     function updateOnline() {
         // Chọn ngẫu nhiên mức thay đổi từ mảng
@@ -7240,284 +7140,3 @@ body {
 
 </body>
 </html>
-
-<!DOCTYPE html>
-<html lang="vi">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-    <title>DIAMOND CLUB</title>
-    <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap"
-      rel="stylesheet"
-  />
-    <style>
-        
-    
-            #clock {
-            font-size: 15px;
-            text-align: center;
-            font-family: "Poppins", sans-serif;    
-            color: #2bff00; /* Màu chữ đen */
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); /* Đổ bóng cho chữ */
-            padding: 10px;
-            border-radius: 5px;
-            position: fixed;  /* Giữ đồng hồ cố định */
-            top: 25px;        /* Căn cách lề trên */
-            left: 20px;       /* Căn cách lề trái */
-            z-index: 9999; 
-            border: 3px solid #C0C0C0; /* Viền vàng */
-            font-weight: 700;
-            transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
-              
-        }
-             #clock:hover {
-                color: #ff0000; /* Màu chữ đen */
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); /* Đổ bóng cho chữ */
-              
-      transform: scale(1.05); /* Phóng to nhẹ khi hover */
-
-
-        }
-
-#timezone {
-    font-size: 16px;
-    color: #ff0000/* Màu chữ đen */
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); /* Đổ bóng cho chữ */
-    text-align: center;
-    font-family: 'Poppins", sans-serif;
-    margin-top: 5px;
-     border-radius: 5px;
-    
-        }
-    </style>
-</head>
-<body>
-    <div class="copyright-section">
-        <p>Copyright © 2021. All rights reserved
-        </p>
-    </div>
-
-    <div id="clock"></div>
-    <div id="timezone"></div>
-
-    <script>
-        // Hàm cập nhật đồng hồ theo múi giờ Hàn Quốc
-        function updateClock() {
-            var now = new Date();
-
-            // Lấy thời gian ở múi giờ Hàn Quốc (Asia/Seoul)
-            var options = {
-                timeZone: 'Asia/Seoul',  // Múi giờ Hàn Quốc
-                hour: '2-digit',
-                minute: '2-digit',
-                second: '2-digit'
-            };
-
-            // Lấy múi giờ hiện tại
-            var timeString = new Intl.DateTimeFormat('vi-VN', options).format(now);
-
-            // Hiển thị thời gian và múi giờ
-            document.getElementById('clock').innerHTML = timeString;
-            document.getElementById('timezone').innerHTML = "Múi giờ: Asia/Seoul";
-        // Xóa dòng liên quan đến múi giờ
-document.getElementById('timezone').innerHTML = "Múi giờ: Asia/Seoul";
-
-        }
-
-        // Cập nhật đồng hồ mỗi giây
-        setInterval(updateClock, 1000);
-        updateClock();
-   
-        
-    </script>
-
-     <style>  
-.copyright-section {
-
-  border-radius: 10px; /* Bo tròn góc nút */ 
-  color: #000000; /* Màu chữ đen */
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); /* Đổ bóng cho chữ */
-
-    text-align: center; /* Canh giữa nội dung */
-    font-size: 15px; /* Kích thước chữ nhỏ vừa */
-    
-    font-family: 'Poppins", sans-serif; /* Đặt font đơn giản */
-    transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
-  
-}
-
-
-</style>
-
-<!DOCTYPE html>
-<html lang="vi">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-    <title>LUXURY GIRL</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
-
-    <style>
-        @keyframes scrollLeft {
-            0% { transform: translateX(100%); }
-            100% { transform: translateX(-100%); }
-        }
-
-        /* Hiệu ứng thông báo chuyên nghiệp */
-        .notification-container {
-            position: fixed;
-            top: 0px;
-            left: 0;
-            width: 100%;
-            overflow: hidden;
-            z-index: 1000;
-            white-space: nowrap;
-            background-color: #000000;
-            padding: -30px 0;
-        }
-
-        .notification {
-           
-            display: inline-block;
-            color: #ffffff; /* Chữ trắng */
-            font-family: 'Poppins", sans-serif;
-            font-size: 18px;
-            font-weight: 700;
-            animation: scrollLeft 18s linear infinite;
-           
-        }
-    </style>
-</head>
-<body>
-
-<div class="notification-container">
-    <div id="notification" class="notification">Nội dung mặc định</div>
-</div>
-
-<script>
-    const notifications = [
-         "KH QuốcAnh66 ở khu vực Jongno-gu (종로구) đã đặt lịch thành công! Hệ thống Luxury Girl Booking xin chân thành cảm ơn. ❤️",
-    "KH Anhnam23 ở khu vực Yongsan-gu (용산구) đã đặt lịch thành công! Hệ thống Luxury Girl Booking xin chân thành cảm ơn. ❤️",
-    "KH HuyKhoa88 tại khu vực Jung-gu (중구) lần đầu tiên gia nhập cộng đồng chúng tôi. Nhanh chóng chọn cho mình một bé nhé!",
-    "KH BaoNgoc23 tại khu vực Seongdong-gu (성동구) đã tham gia cộng đồng của chúng tôi. Nhanh chóng chọn cho mình một bé phù hợp nhé!",
-    "Chúc mừng KH NamTrung45 tại khu vực Gangnam-gu (강남구) đã trở thành Member VIP 💎! Chúng tôi rất vui khi có bạn đồng hành.",
-    "KH KhaiMinh89 ở khu vực Mapo-gu (마포구) đã đặt lịch thành công! Hệ thống Luxury Girl Booking xin chân thành cảm ơn. ❤️",
-    "KH 42742891 ở khu vực Gwangjin-gu (광진구) đã đặt lịch thành công! Hệ thống Luxury Girl Booking xin chân thành cảm ơn. ❤️",
-    "KH TuanAn95 ở khu vực Gangbuk-gu (강북구) đã đặt lịch thành công! Hệ thống Luxury Girl Booking xin chân thành cảm ơn. ❤️",
-    "KH HuuPhuc101 ở khu vực Seongbuk-gu (성북구) đã đặt lịch thành công! Hệ thống Luxury Girl Booking xin chân thành cảm ơn. ❤️",
-    "KH 314659 ở khu vực Dongdaemun-gu (동대문구) đã đặt lịch thành công! Hệ thống Luxury Girl Booking xin chân thành cảm ơn. ❤️",
-    "KH HoangSon11 ở khu vực Dobong-gu (도봉구) đã đặt lịch thành công! Hệ thống Luxury Girl Booking xin chân thành cảm ơn. ❤️",
-    "KH BaoKhanh62 ở khu vực Nowon-gu (노원구) đã đặt lịch thành công! Hệ thống Luxury Girl Booking xin chân thành cảm ơn. ❤️",
-    "KH HoaiBac ở khu vực Eunpyeong-gu (은평구) đã đặt lịch thành công! Hệ thống Luxury Girl Booking xin chân thành cảm ơn. ❤️",
-    "KH MinhHieu75 ở khu vực Seodaemun-gu (서대문구) đã đặt lịch thành công! Hệ thống Luxury Girl Booking xin chân thành cảm ơn. ❤️",
-    "KH DuyTan23 tại khu vực Yangcheon-gu (양천구) đã trở thành Member VIP 💎! Chúc mừng anh đã gia nhập cộng đồng của chúng tôi!",
-    "KH BaoKiet22 tại khu vực Gangseo-gu (강서구) đã trở thành Member VIP 💎! Chúc mừng anh đã gia nhập cộng đồng của chúng tôi!",
-    "KH ThanhPhong202 tại khu vực Guro-gu (구로구) đã trở thành Member VIP 💎! Chúc mừng anh đã gia nhập cộng đồng của chúng tôi!",
-    "KH 1938427 ở khu vực Geumcheon-gu (금천구) đã đặt lịch thành công! Hệ thống Luxury Girl Booking xin chân thành cảm ơn. ❤️",
-    "KH HoangLong999 tại khu vực Yeongdeungpo-gu (영등포구) đã trở thành Member VIP 💎! Chúc mừng anh đã gia nhập cộng đồng của chúng tôi!",
-    "KH TruongSon55 tại khu vực Dongjak-gu (동작구) đã tham gia cộng đồng lần đầu tiên. Chọn cho mình một bé để khám phá nhé!",
-    "KH QuangHuy99 tại khu vực Gwanak-gu (관악구) vừa gia nhập cộng đồng của chúng tôi. Hãy nhanh tay chọn một bé phù hợp nhé!",
-    "KH ThanhNam19 tại khu vực Seocho-gu (서초구) mới gia nhập. Đừng quên chọn một bé để trải nghiệm dịch vụ đặc biệt của chúng tôi!",
-    "KH DuyTan89 ở khu vực Gangdong-gu (강동구) đã đặt lịch thành công! Hệ thống Luxury Girl Booking xin chân thành cảm ơn. ❤️",
-    "KH 102938 tại khu vực Haeundae-gu (해운대구) đã trở thành Member VIP 💎! Chúc mừng anh đã gia nhập cộng đồng của chúng tôi!",
-    "KH NamKiet45 ở khu vực Busan (부산) đã đặt lịch thành công! Hệ thống Luxury Girl Booking xin chân thành cảm ơn. ❤️",
-    "KH TuanMinh777 tại khu vực Jeju (제주도) lần đầu gia nhập. Hãy chọn một bé yêu thích để có trải nghiệm tuyệt vời!",
-    "KH VietHoa55 tại khu vực Daegu (대구) đã trở thành Member VIP 💎! Chúc mừng anh đã gia nhập cộng đồng của chúng tôi!",
-    "KH NamThanh321 ở khu vực Incheon (인천) đã đặt lịch thành công! Cảm ơn bạn đã chọn Luxury Girl Booking! ❤️",
-    "KH 789412 tại khu vực Gwangju (광주) đã trở thành Member VIP 💎! Chúc mừng anh đã gia nhập cộng đồng của chúng tôi!",
-    "KH QuangMinh45 tại khu vực Daejeon (대전) đã gia nhập cộng đồng! Hãy chọn ngay một bé để trải nghiệm nào!",
-    "KH TruongAn tại khu vực Ulsan (울산) đã gia nhập. Đừng bỏ lỡ cơ hội chọn một bé ngay hôm nay!",
-    "KH Phuong89 tại khu vực Sejong (세종) vừa gia nhập. Hãy bắt đầu bằng cách chọn một bé để trải nghiệm dịch vụ của chúng tôi!",
-    "KH 607283 ở khu vực Gangwon (강원도) đã đặt lịch thành công! Hệ thống Luxury Girl Booking xin chân thành cảm ơn. ❤️",
-    "KH QuocNam202 tại khu vực Jeollanam-do (전라남도) đã trở thành Member VIP 💎! Hãy tận hưởng các ưu đãi dành riêng cho VIP.",
-    "KH 5698732 ở khu vực Jeollabuk-do (전라북도) đã đặt lịch thành công! Hệ thống Luxury Girl Booking xin chân thành cảm ơn. ❤️",
-    "KH Bao123 tại khu vực Gyeonggi-do (경기도) đã trở thành Member VIP 💎! Chúc mừng anh đã gia nhập cộng đồng của chúng tôi!",
-    "KH 546372 ở khu vực Gyeongsangbuk-do (경상북도) đã đặt lịch thành công! Hệ thống Luxury Girl Booking xin chân thành cảm ơn. ❤️",
-    "KH Tuan1234 ở khu vực Gyeongsangnam-do (경상남도) đã đặt lịch thành công! Cảm ơn bạn đã đồng hành cùng Luxury Girl Booking ❤️",
-    "KH 378942 ở khu vực Chungcheongnam-do (충청남도) đã đặt lịch thành công! Hệ thống Luxury Girl Booking xin chân thành cảm ơn. ❤️",
-    "KH ThanhMinh19 tại khu vực Chungcheongbuk-do (충청북도) mới gia nhập. Đừng quên chọn một bé để trải nghiệm dịch vụ đặc biệt của chúng tôi!",
-    "KH HoangLong_92 tại khu vực Busan (부산) vừa tham gia cộng đồng Luxury Girl Booking. Đừng bỏ lỡ cơ hội chọn một bé ngay hôm nay!",
-    "KH 712348 ở khu vực Gyeongsangnam-do (경상남도) đã đặt lịch thành công! Hệ thống Luxury Girl Booking xin chân thành cảm ơn. ❤️",
-    "KH ThanhHung ở khu vực Gyeonggi-do (경기도) đã đặt lịch thành công! Hệ thống Luxury Girl Booking xin chân thành cảm ơn. ❤️",
-    "KH HieuLam@303 đã trở thành Member VIP 💎! Chúc mừng anh đã gia nhập cộng đồng của chúng tôi!",
-    "KH QuocAnh! Đã đặt lịch thành công! Cảm ơn anh đã chọn Luxury Girl Booking.",
-    "KH DuyThuan_303 vừa trở thành Member VIP 💎! Chúc mừng anh đã gia nhập cộng đồng của chúng tôi!",
-    "KH BinhMinh24 ở khu vực Jeju (제주도) đã đặt lịch thành công! Hệ thống Luxury Girl Booking xin chân thành cảm ơn. ❤️",
-    "KH 8362749 tại khu vực Gwangju (광주) đã trở thành Member VIP 💎! Chúc mừng anh đã gia nhập cộng đồng của chúng tôi!",
-    "KH ThaiSon ở khu vực Jeollanam-do (전라남도) đã gia nhập cộng đồng. Hãy chọn một bé yêu thích để bắt đầu trải nghiệm nào!",
-    "KH DucHuy91 ở khu vực Jeollabuk-do (전라북도) đã đặt lịch thành công! Hệ thống Luxury Girl Booking xin chân thành cảm ơn. ❤️",
-    "KH TrungQuoc_22 tại khu vực Seongbuk-gu (성북구) đã trở thành Member VIP 💎! Chúc mừng anh đã gia nhập cộng đồng của chúng tôi!",
-    "KH 935261 ở khu vực Gangnam-gu (강남구) đã gia nhập cộng đồng. Đừng ngại chọn một bé để khám phá ngay hôm nay!",
-    "KH QuốcAnh66 ở khu vực Jongno-gu (종로구) đã đặt lịch thành công! Hệ thống Luxury Girl Booking xin chân thành cảm ơn. ❤️",
-    "KH Anhnam23 ở khu vực Yongsan-gu (용산구) đã đặt lịch thành công! Hệ thống Luxury Girl Booking xin chân thành cảm ơn. ❤️",
-    "KH HuyKhoa88 tại khu vực Jung-gu (중구) lần đầu tiên gia nhập cộng đồng chúng tôi. Nhanh chóng chọn cho mình một bé nhé!",
-    "KH BaoNgoc23 tại khu vực Seongdong-gu (성동구) đã tham gia cộng đồng của chúng tôi. Nhanh chóng chọn cho mình một bé phù hợp nhé!",
-    "Chúc mừng KH NamTrung45 tại khu vực Gangnam-gu (강남구) đã trở thành Member VIP 💎! Chúng tôi rất vui khi có bạn đồng hành.",
-    "KH KhaiMinh89 ở khu vực Mapo-gu (마포구) đã đặt lịch thành công! Hệ thống Luxury Girl Booking xin chân thành cảm ơn. ❤️",
-    "KH 42742891 ở khu vực Gwangjin-gu (광진구) đã đặt lịch thành công! Hệ thống Luxury Girl Booking xin chân thành cảm ơn. ❤️",
-    "KH TuanAn95 ở khu vực Gangbuk-gu (강북구) đã đặt lịch thành công! Hệ thống Luxury Girl Booking xin chân thành cảm ơn. ❤️",
-    "KH HuuPhuc101 ở khu vực Seongbuk-gu (성북구) đã đặt lịch thành công! Hệ thống Luxury Girl Booking xin chân thành cảm ơn. ❤️",
-    "KH 314659 ở khu vực Dongdaemun-gu (동대문구) đã đặt lịch thành công! Hệ thống Luxury Girl Booking xin chân thành cảm ơn. ❤️",
-    "KH HoangSon11 ở khu vực Dobong-gu (도봉구) đã đặt lịch thành công! Hệ thống Luxury Girl Booking xin chân thành cảm ơn. ❤️",
-    "KH BaoKhanh62 ở khu vực Nowon-gu (노원구) đã đặt lịch thành công! Hệ thống Luxury Girl Booking xin chân thành cảm ơn. ❤️",
-    "KH HoaiBac ở khu vực Eunpyeong-gu (은평구) đã đặt lịch thành công! Hệ thống Luxury Girl Booking xin chân thành cảm ơn. ❤️",
-    "KH MinhHieu75 ở khu vực Seodaemun-gu (서대문구) đã đặt lịch thành công! Hệ thống Luxury Girl Booking xin chân thành cảm ơn. ❤️",
-    "KH DuyTan23 tại khu vực Yangcheon-gu (양천구) đã trở thành Member VIP 💎! Chúc mừng anh đã gia nhập cộng đồng của chúng tôi!",
-    "KH BaoKiet22 tại khu vực Gangseo-gu (강서구) đã trở thành Member VIP 💎! Chúc mừng anh đã gia nhập cộng đồng của chúng tôi!",
-    "KH ThanhPhong202 tại khu vực Guro-gu (구로구) đã trở thành Member VIP 💎! Chúc mừng anh đã gia nhập cộng đồng của chúng tôi!",
-    "KH 1938427 ở khu vực Geumcheon-gu (금천구) đã đặt lịch thành công! Hệ thống Luxury Girl Booking xin chân thành cảm ơn. ❤️",
-    "KH HoangLong999 tại khu vực Yeongdeungpo-gu (영등포구) đã trở thành Member VIP 💎! Chúc mừng anh đã gia nhập cộng đồng của chúng tôi!",
-    "KH TruongSon55 tại khu vực Dongjak-gu (동작구) đã tham gia cộng đồng lần đầu tiên. Chọn cho mình một bé để khám phá nhé!",
-    "KH QuangHuy99 tại khu vực Gwanak-gu (관악구) vừa gia nhập cộng đồng của chúng tôi. Hãy nhanh tay chọn một bé phù hợp nhé!",
-    "KH ThanhNam19 tại khu vực Seocho-gu (서초구) mới gia nhập. Đừng quên chọn một bé để trải nghiệm dịch vụ đặc biệt của chúng tôi!",
-    "KH DuyTan89 ở khu vực Gangdong-gu (강동구) đã đặt lịch thành công! Hệ thống Luxury Girl Booking xin chân thành cảm ơn. ❤️",
-    "KH 102938 tại khu vực Haeundae-gu (해운대구) đã trở thành Member VIP 💎! Chúc mừng anh đã gia nhập cộng đồng của chúng tôi!",
-    "KH NamKiet45 ở khu vực Busan (부산) đã đặt lịch thành công! Hệ thống Luxury Girl Booking xin chân thành cảm ơn. ❤️",
-    "KH TuanMinh777 tại khu vực Jeju (제주도) lần đầu gia nhập. Hãy chọn một bé yêu thích để có trải nghiệm tuyệt vời!",
-    "KH VietHoa55 tại khu vực Daegu (대구) đã trở thành Member VIP 💎! Chúc mừng anh đã gia nhập cộng đồng của chúng tôi!",
-    "KH NamThanh321 ở khu vực Incheon (인천) đã đặt lịch thành công! Cảm ơn bạn đã chọn Luxury Girl Booking! ❤️",
-    "KH 789412 tại khu vực Gwangju (광주) đã trở thành Member VIP 💎! Chúc mừng anh đã gia nhập cộng đồng của chúng tôi!",
-    "KH QuangMinh45 tại khu vực Daejeon (대전) đã gia nhập cộng đồng! Hãy chọn ngay một bé để trải nghiệm nào!",
-    "KH TruongAn tại khu vực Ulsan (울산) đã gia nhập. Đừng bỏ lỡ cơ hội chọn một bé ngay hôm nay!",
-    "KH Phuong89 tại khu vực Sejong (세종) vừa gia nhập. Hãy bắt đầu bằng cách chọn một bé để trải nghiệm dịch vụ của chúng tôi!",
-    "KH 607283 ở khu vực Gangwon (강원도) đã đặt lịch thành công! Hệ thống Luxury Girl Booking xin chân thành cảm ơn. ❤️",
-    "KH QuocNam202 tại khu vực Jeollanam-do (전라남도) đã trở thành Member VIP 💎! Hãy tận hưởng các ưu đãi dành riêng cho VIP.",
-    "KH 5698732 ở khu vực Jeollabuk-do (전라북도) đã đặt lịch thành công! Hệ thống Luxury Girl Booking xin chân thành cảm ơn. ❤️",
-    "KH Bao123 tại khu vực Gyeonggi-do (경기도) đã được giải tỏa! Chúc mừng anh đã gia nhập cộng đồng của chúng tôi!",
-    "KH 546372 ở khu vực Gyeongsangbuk-do (경상북도) đã đặt lịch thành công! Hệ thống Luxury Girl Booking xin chân thành cảm ơn. ❤️",
-    "KH Tuan1234 ở khu vực Gyeongsangnam-do (경상남도) đã đặt lịch thành công! Cảm ơn bạn đã đồng hành cùng Luxury Girl Booking ❤️",
-    "KH 378942 ở khu vực Chungcheongnam-do (충청남도) đã đặt lịch thành công! Hệ thống Luxury Girl Booking xin chân thành cảm ơn. ❤️",
-    "KH ThanhMinh19 tại khu vực Chungcheongbuk-do (충청북도) mới gia nhập. Đừng quên chọn một bé để trải nghiệm dịch vụ đặc biệt của chúng tôi!",
-    "KH HoangLong_92 tại khu vực Busan (부산) vừa tham gia cộng đồng Luxury Girl Booking. Đừng bỏ lỡ cơ hội chọn một bé ngay hôm nay!",
-    "KH 712348 ở khu vực Gyeongsangnam-do (경상남도) đã đặt lịch thành công! Hệ thống Luxury Girl Booking xin chân thành cảm ơn. ❤️",
-    "KH ThanhHung ở khu vực Gyeonggi-do (경기도) đã đặt lịch thành công! Hệ thống Luxury Girl Booking xin chân thành cảm ơn. ❤️",
-    "KH HieuLam@303 đã trở checker may mắn nhất! Chúc mừng anh đã gia nhập cộng đồng của chúng tôi!",
-    "KH QuocAnh! Đã đặt lịch thành công! Cảm ơn anh đã chọn Luxury Girl Booking.",
-    "KH DuyThuan_303 vừa trở thành người sử dụng dịch vụ nhiều nhất trong tuần! Cám ơn anh đã ủng hộ",
-    "KH BinhMinh24 ở khu vực Jeju (제주도) đã đặt lịch thành công! Hệ thống Luxury Girl Booking xin chân thành cảm ơn. ❤️",
-    "KH 8362749 tại khu vực Gwangju (광주) đã sử dụng dịch vụ lần đầu tiên! Chúc mừng anh đã gia nhập cộng đồng của chúng tôi!",
-    "KH ThaiSon ở khu vực Jeollanam-do (전라남도) đã gia nhập cộng đồng. Hãy chọn một bé yêu thích để bắt đầu trải nghiệm nào!",
-    "KH DucHuy91 ở khu vực Jeollabuk-do (전라북도) đã đặt lịch thành công! Hệ thống Luxury Girl Booking xin chân thành cảm ơn. ❤️",
-    "KH TrungQuoc_22 tại khu vực Seongbuk-gu (성북구) đã phản hồi về cho hệ thống! Chúc mừng anh đã gia nhập cộng đồng của chúng tôi!",
-    "KH 935261 ở khu vực Gangnam-gu (강남구) đã gia nhập cộng đồng. Đừng ngại chọn một bé để khám phá ngay hôm nay!",
-  ];
-    
-
-    function updateNotification() {
-        const notification = document.getElementById('notification');
-        const randomIndex = Math.floor(Math.random() * notifications.length);
-        notification.textContent = notifications[randomIndex];
-    }
-
-    // Cập nhật nội dung thông báo mỗi 30 giây
-    window.addEventListener('load', () => {
-        updateNotification();
-        setInterval(updateNotification, 10000); // 20 giây
-    });
-</script>
-
-</body>
-</html>
-
